@@ -1,578 +1,673 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Our Team | Vaisoverse Technology</title>
-  <meta name="description" content="Meet the talented team of V Tech Solutions – leaders, developers, designers, and innovators." />
-  <link rel="icon" href="VTech.png"  type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Virgo:wght@400;800&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<html lang="en" class="scroll-smooth">
 
-  <!-- Favicon generated from the inline SVG logo below -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%23004d4d'/%3E%3Cstop offset='1' stop-color='%23003333'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='128' height='128' rx='18' fill='url(%23g)'/%3E%3Cpath d='M28 88l18-48h16l18 48h-14l-3.6-11H45.6L42 88H28zm21-22h18l-9-26-9 26z' fill='%23ffcc66'/%3E%3C/ svg%3E">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Elite Team | Vaisoverse Technology</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    :root{
-      --purple-primary:#A100FF;
-      --purple-dark:#A100FF;
-      --purple-light:#a78bfa;
-      --cream:rgb(27, 27, 26);
-      --amber:#A100FF;
-      --smoke:#333333;
+    :root {
+      --primary-purple: #8E2AAE;
+      --dark-purple: #5E1B74;
+      --accent-violet: #B85AD9;
+      --bg-dark: #0B0B0F;
+      --surface-dark: #14141C;
+      --text-primary: #FFFFFF;
+      --text-secondary: #CFC7D6;
     }
 
-    /* Loading Spinner */
-    .loading-spinner {
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .font-heading {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Glassmorphism Classes */
+    .glass-header {
+      background: rgba(11, 11, 15, 0.7);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .glass-card {
+      background: rgba(20, 20, 28, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card:hover {
+      background: rgba(30, 30, 40, 0.8);
+      border-color: var(--accent-violet);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 25px 50px -12px rgba(142, 42, 174, 0.4);
+    }
+
+    /* Hover Underscore Animation */
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-violet);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Button Ripple Effect */
+    .btn-ripple {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .btn-ripple:hover {
+      box-shadow: 0 0 20px rgba(184, 90, 217, 0.4);
+      transform: scale(1.02);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--dark-purple);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-purple);
+    }
+
+    /* Noise Overlay for texture */
+    body::before {
+      content: "";
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      transition: opacity 0.5s ease;
-    }
-
-    .spinner-container {
-      position: relative;
-      width: 120px;
-      height: 120px;
-    }
-
-    .spinner-circle {
-      width: 100%;
-      height: 100%;
-      border: 4px solid rgba(161, 0, 255, 0.3);
-      border-top: 4px solid var(--purple-primary);
-      border-radius: 50%;
-      animation: spin 1.5s linear infinite;
-    }
-
-    .spinner-logo {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 60px;
-      height: 60px;
-      background: url('VTech.png') no-repeat center center;
-      background-size: contain;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .loading-spinner.hidden {
-      opacity: 0;
       pointer-events: none;
-    }
-    html{scroll-behavior:smooth}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;background-color:#000000;color:#ffffff;line-height:1.6}
-
-    /* Header / Navbar */
-    .navbar{background:#000000; box-shadow:0 0 15px rgba(191, 20, 243, 0.8), 0 0 30px rgba(255,255,255,0.4)}
-    .navbar .nav-link{color:#ffffff!important; text-shadow:0 0 10px rgba(255,255,255,0.8); padding: 0.5rem 1rem; border-radius: 4px; transition: all 0.3s ease}
-    .navbar .nav-link:hover{color:#ffffff!important; background-color: var(--purple-primary); text-shadow:0 0 15px #ffffff; box-shadow: 0 0 10px var(--purple-primary)}
-    .brand-logo{display:flex;align-items:center;gap:.55rem;color:#fff;text-decoration:none}
-    .brand-logo svg{height:36px;width:auto}
-    .brand-logo span{
-      font-family: 'Virgo', sans-serif;
-      font-weight: 800; 
-      letter-spacing: .08em; 
-      color: #fff; 
-
-      overflow: hidden; 
-      border-right: 3px solid #fff;
-    }
-
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-
-    @keyframes blink-caret {
-      from, to { border-color: transparent; }
-      50% { border-color: #fff; }
-    }
-
-    /* Section helpers */
-    section{padding:80px 0}
-    .section-title{font-weight:800;color:#A100FF;margin-bottom:1.25rem}
-    .section-sub{color:rgb(223, 10, 10);max-width:850px}
-    .divider {
-        border: 0;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, var(--purple-primary), transparent);
-        margin: 40px auto;
-        width: 80%;
-        max-width: 600px;
-    }
-
-    /* Team Section */
-    .team-section {
-      padding: 100px 0;
-      background-color: #000000;
-    }
-    .team-card {
-      position: relative;
-      border: 1px solid #A100FF;
-      border-radius: 16px;
-      padding: 24px;
-      text-align: center;
-      background: linear-gradient(135deg, #000000, #350153);
-      transition: transform 0.3s ease;
-      overflow: hidden;
-    }
-    .team-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, #A100FF, transparent, #A100FF, transparent);
-      background-size: 400% 400%;
-      animation: rotateGradient 3s linear infinite;
-      z-index: 0;
-      opacity: 0.3;
-    }
-    .team-card > * {
-      position: relative;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.03;
       z-index: 1;
     }
-    .team-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(161, 0, 255, 0.6);
-    }
-    @keyframes rotateGradient {
-      0% {
-        transform: rotate(0deg);
-        background-position: 0% 50%;
-      }
-      100% {
-        transform: rotate(360deg);
-        background-position: 100% 50%;
-      }
-    }
-    .team-card img {
-      width: 160px;
-      height: 160px;
-      object-fit: cover;
-      object-position: top;
-      border-radius: 8px;
-      border: 2px solid #A100FF;
-      display: block;
-      margin: 0 auto;
-    }
-    .team-card h5 {
-      margin-top: 15px;
-      font-weight: bold;
-      color: #ffffff;
-      background-color: #A100FF;
-      padding: 8px 16px;
-      border-radius: 20px;
-      display: inline-block;
-      position: relative;
-      overflow: hidden;
-    }
-    .team-card h5::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent, rgba(255, 255, 255, 0.3), transparent);
-      background-size: 400% 400%;
-      animation: rotateGradient 3s linear infinite;
-      z-index: 0;
-      opacity: 0.5;
-    }
-    .team-card h5 span {
-      position: relative;
-      z-index: 1;
-    }
-    .team-card p {
-      color: #000000;
-      margin-bottom: 0;
-      font-weight: 500;
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 4px 12px;
-      border-radius: 15px;
-      margin-top: 8px;
-    }
-    img:focus, a:focus, button:focus {
-      outline: none !important;
-      box-shadow: none !important;
+
+    /* Floating Buttons */
+    .floating-btns {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
-    /* Footer */
-    footer {
-      margin-top: 30px;
-      padding: 20px 0;
-      background-color: #000000;
-      border-top: 1px solid #A100FF;
-      text-align: center;
-    }
-    footer a {
-      margin: 0 10px;
-      color: #ffffff;
-      font-size: 1.5rem;
-      text-decoration: none;
-    }
-    footer a:hover {
-      color: #A100FF;
+    .float-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Mobile Navigation Drawer Styles */
-    @media (max-width: 991.98px) {
-      .navbar-collapse {
-        background: linear-gradient(135deg, #A100FF, #8A2BE2);
-        padding: 1rem;
-        border-radius: 8px;
-        margin-top: 10px;
-        box-shadow: 0 0 20px rgba(161, 0, 255, 0.5);
-      }
-      
-      .navbar-collapse .nav-link {
-        color: #ffffff !important;
-        padding: 0.75rem 1rem;
-        margin: 0.25rem 0;
-        border-radius: 4px;
-        transition: all 0.3s ease;
-      }
-      
-      .navbar-collapse .nav-link:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: translateX(5px);
-      }
-      
-      .navbar-collapse .dropdown-menu {
-        background: rgba(161, 0, 255, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-      }
-      
-      .navbar-collapse .dropdown-item {
-        color: #ffffff;
-      }
-      
-      .navbar-collapse .dropdown-item:hover {
-        background: rgba(255, 255, 255, 0.2);
-        color: #ffffff;
-      }
+    .float-btn:hover {
+      transform: scale(1.1) translateY(-5px);
+    }
+
+    #back-to-top {
+      background: var(--surface-dark);
+      color: white;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    #back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .whatsapp-btn {
+      background: #25D366;
+      color: white;
     }
   </style>
 </head>
-<body>
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-       <a class="brand-logo" href="index.html#home" aria-label="V Tech Solutions">
-  <!-- Downward-pointing Sleek Impossible Triangle Logo -->
-  <img src="VTech.png" style="height:50px; width:auto;">
-  <h5>Vaisoverse Technology</h5>
-</a>
 
-      <button class="navbar-toggler" style="background-color: var(--purple-primary); color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-        <span class="navbar-toggler-icon"></span>
+<body class="selection:bg-purple-500/30 selection:text-white">
+
+  <!-- FLOATING BUTTONS -->
+  <div class="floating-btns">
+    <button id="back-to-top" class="float-btn" onclick="scrollToTop()" title="Back to Top">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18">
+        </path>
+      </svg>
+    </button>
+    <a href="https://wa.me/919566985698" target="_blank" class="float-btn whatsapp-btn" title="Chat on WhatsApp">
+      <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.432h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+      </svg>
+    </a>
+  </div>
+
+  <!-- HEADER -->
+  <header id="main-header" class="fixed top-0 left-0 w-full z-50 glass-header py-4 transition-all duration-500">
+    <nav class="container mx-auto px-4 md:px-6 flex items-center justify-between">
+      <a href="sam.html#home" class="flex items-center space-x-3 group">
+        <img src="Vaisoverse Technology.png" alt="VAISO VERSE Logo" class="h-10 w-auto">
+        <div class="flex flex-col">
+          <span
+            class="text-xl font-extrabold tracking-tight text-white group-hover:text-[var(--accent-violet)] transition-colors">Vaisoverse
+            Technology</span>
+          <span class="text-[10px] uppercase tracking-[0.2em] font-medium text-white/50 leading-none">Innovating
+            Intelligent Digital Solutions</span>
+        </div>
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="index.html#home"
+          class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">Home</a>
+        <a href="index.html#about"
+          class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">About</a>
+        <a href="index.html#products"
+          class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">Products</a>
+        <a href="index.html#innovation"
+          class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">Innovation</a>
+        <a href="index.html#tech"
+          class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">Tech Stack</a>
+        <a href="index.html#careers"
+          class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">Careers</a>
+        <a href="index.html#faq"
+          class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">FAQ</a>
+        <a href="team.html"
+          class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors active">Team</a>
+        <a href="index.html#contact"
+          class="px-6 py-2.5 bg-gradient-to-r from-[var(--primary-purple)] to-[var(--accent-violet)] rounded-full text-sm font-bold btn-ripple">Connect
+          Now</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="menu-toggle" class="lg:hidden flex flex-col space-y-1.5 focus:outline-none z-50">
+        <span class="w-6 h-0.5 bg-white transition-all"></span>
+        <span class="w-6 h-0.5 bg-white transition-all"></span>
+        <span class="w-6 h-0.5 bg-white transition-all"></span>
       </button>
+    </nav>
+  </header>
 
-      <div id="nav" class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="index.html#about">About us</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#careers">Careers</a></li>
-          <li class="nav-item"><a class="nav-link active" href="team.html">Team</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact us</a></li>
-          
-     <li class="nav-item dropdown ms-lg-3">
-            <a class="btn btn-outline-light dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="bi bi-box-arrow-in-right me-1"></i>Login</a>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" href="login.html"><i class="bi bi-briefcase me-2"></i>Employee Login</a></li>
-              <li><a class="dropdown-item" href="customer-login.html"><i class="bi bi-person-badge me-2"></i>Customer Login</a></li>
-            </ul>
-          </li>
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu"
+    class="fixed inset-0 bg-[var(--bg-dark)] z-40 hidden flex-col items-center justify-start pt-24 pb-12 space-y-6 lg:hidden transition-all duration-500 overflow-y-auto">
+    <a href="index.html#home" class="text-2xl font-bold mobile-link">Home</a>
+    <a href="index.html#about" class="text-2xl font-bold mobile-link">About</a>
+    <a href="index.html#products" class="text-2xl font-bold mobile-link">Products</a>
+    <a href="index.html#innovation" class="text-2xl font-bold mobile-link">Innovation</a>
+    <a href="index.html#tech" class="text-2xl font-bold mobile-link">Tech Stack</a>
+    <a href="index.html#careers" class="text-2xl font-bold mobile-link">Careers</a>
+    <a href="index.html#faq" class="text-2xl font-bold mobile-link">FAQ</a>
+    <a href="team.html" class="text-2xl font-bold mobile-link text-[var(--accent-violet)]">Team</a>
+    <a href="index.html#contact" class="text-2xl font-bold mobile-link">Contact</a>
+  </div>
 
-        <a class="btn btn-outline-light btn-sm ms-3" href="team.html">
-          <i class="bi bi-people-fill me-2"></i>Our Team
-        </a>
+  <!-- HERO SECTION -->
+  <section class="pt-40 pb-20 bg-[var(--bg-dark)] relative overflow-hidden">
+    <div class="container mx-auto px-4 md:px-6 text-center relative z-10" data-aos="fade-up">
+      <h1 class="text-4xl md:text-7xl font-black mb-6">Minds Behind <span
+          class="bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary-purple)] to-[var(--accent-violet)]">Our
+          Innovation</span></h1>
+      <p class="text-[var(--text-secondary)] text-xl max-w-2xl mx-auto font-medium">The visionary minds engineering the
+        future of intelligent digital ecosystems.</p>
+    </div>
+    <div class="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-[100px]"></div>
+  </section>
+
+  <!-- TEAM GRID SECTION -->
+  <section class="py-24 bg-[var(--bg-dark)]">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="grid md:grid-cols-3 gap-12">
+        <!-- Team Member 1 -->
+        <div id="arivu-card"
+          class="glass-card p-6 md:p-10 rounded-[2.5rem] md:rounded-[3rem] text-center group flex flex-col h-full cursor-pointer hover:border-purple-500 transition-all"
+          data-aos="fade-up" data-aos-delay="100">
+          <div
+            class="relative w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden p-1 bg-gradient-to-r from-[var(--primary-purple)] to-[var(--accent-violet)]">
+            <img src="src/Arivu.png" alt="Arivu"
+              class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-700">
+          </div>
+          <h3 class="text-2xl font-black mb-2 text-white">Arivu Pandeeswaran V</h3>
+          <p class="text-purple-400 font-bold uppercase tracking-widest text-xs mb-6">Founder & Director</p>
+          <div class="flex-grow">
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed text-justify px-4">Executive director and
+              strategic architect of Vaisoverse's global vision, spearheading high-impact digital transformation and
+              enterprise-grade innovation for a cross-border clientele.</p>
+          </div>
+          <div
+            class="mt-6 text-xs text-white/30 uppercase tracking-widest font-bold group-hover:text-purple-400 transition-colors">
+            Click to view full bio
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="glass-card p-6 md:p-10 rounded-[2.5rem] md:rounded-[3rem] text-center group flex flex-col h-full"
+          data-aos="fade-up" data-aos-delay="200">
+          <div
+            class="relative w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden p-1 bg-gradient-to-r from-[var(--primary-purple)] to-[var(--accent-violet)]">
+            <img src="src/Kathija Beevi.png" alt="Kathija Beevi"
+              class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-700">
+          </div>
+          <h3 class="text-2xl font-black mb-2 text-white">Kathija Beevi S</h3>
+          <p class="text-purple-400 font-bold uppercase tracking-widest text-xs mb-6">Human Resource</p>
+          <div class="flex-grow">
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed text-justify px-4">Strategic HR business
+              partner dedicated to cultivating a high-performance organizational culture, optimizing global talent
+              acquisition pipelines, and aligning human capital with long-term technological roadmaps.</p>
+          </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="glass-card p-6 md:p-10 rounded-[2.5rem] md:rounded-[3rem] text-center group flex flex-col h-full"
+          data-aos="fade-up" data-aos-delay="300">
+          <div
+            class="relative w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden p-1 bg-gradient-to-r from-[var(--primary-purple)] to-[var(--accent-violet)]">
+            <img src="src/Shree.jpg" alt="Shree K"
+              class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-700">
+          </div>
+          <h3 class="text-2xl font-black mb-2 text-white">Shree K</h3>
+          <p class="text-purple-400 font-bold uppercase tracking-widest text-xs mb-6">Project Manager</p>
+          <div class="flex-grow">
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed text-justify px-4">Precision-driven project
+              management executive with a track record of orchestrating complex enterprise SDLCs, ensuring operational
+              excellence and multi-stakeholder success in high-velocity global delivery environments.</p>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
-
-  <!-- Team Section -->
-  <!-- ================= TEAM SECTION ================= -->
-  <section class="team-section">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="fw-bold" style="color: var(--purple-primary)">Our Team</h2>
-        <p class="text-white">With expertise across software and web development, our dedicated team brings innovation and quality to every project.</p>
-      </div>
-  <div class="divider"></div>
-      <!-- ================= Software Developers ================= -->
-      <h3 class="fw-semibold mb-4 text-center" style="color: var(--text-white)">Software Developers</h3>
-      
-      <!-- Desktop View -->
-      <div class="d-none d-md-block">
-        <div class="row g-4 justify-content-center">
-          <div class="col-md-3">
-            <div class="team-card">
-              <img src="src/Rajesh.jpg" alt="Rajesh kanna">
-              <h5><span>Rajesh Kanna</span></h5>
-              <p>HR & Project Manager</p>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="team-card">
-              <img src="src/munish.png" alt="B.Munish Karthikeyan">
-              <h5><span>Munish Karthikeyan</span></h5>
-              <p>Software Developer</p>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="team-card">
-              <img src="src/Sri tharani.jpg" alt="Dharani Kumar">
-              <h5><span>Shri tharani</span></h5>
-              <p>Software Developer</p>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="team-card">
-              <img src="src/yogesh.png" alt="K.Selva Karthick">
-              <h5><span>Yogeshwaran</span></h5>
-              <p>Software Developer</p>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="team-card">
-              <img src="src/vishnu.jpg" alt="R.Vishnu">
-              <h5><span>Vishnu</span></h5>
-              <p>Software Developer</p>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="team-card">
-              <img src="src/Rethanya.jpeg" alt="R.Vishnu">
-              <h5><span>Rethanya</span></h5>
-              <p>Software Developer</p>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="team-card">
-              <img src="src/shalini.jpg" alt="R.Vishnu">
-              <h5><span>Shaalini</span></h5>
-              <p>Web Developer</p>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="team-card">
-              <img src="src/rohini.jpg" alt="R.Vishnu">
-              <h5><span>Rohini</span></h5>
-              <p>Web Developer</p>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="team-card">
-              <img src="src/arpita.png" alt="R.Vishnu">
-              <h5><span>Arpita</span></h5>
-              <p>Web Developer</p>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="team-card">
-              <img src="src/aravindh.jpg" alt="R.Vishnu">
-              <h5><span>Aravindh</span></h5>
-              <p>Web Developer</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mobile View - Carousel -->
-      <div id="softwareCarousel" class="carousel slide d-md-none team-carousel" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="row g-4 justify-content-center">
-              <div class="col-12">
-                <div class="team-card">
-                  <img src="src/Rajesh.jpg" alt="Rajesh kanna">
-                  <h5><span>Rajesh Kanna</span></h5>
-                  <p>HR & Project Manager</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row g-4 justify-content-center">
-              <div class="col-12">
-                <div class="team-card">
-                  <img src="src/munish.png" alt="B.Munish Karthikeyan">
-                  <h5><span>Munish Karthikeyan</span></h5>
-                  <p>Software Developer</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row g-4 justify-content-center">
-              <div class="col-12">
-                <div class="team-card">
-                  <img src="src/Sri tharani.jpg" alt="Dharani Kumar">
-                  <h5><span>Shri tharani</span></h5>
-                  <p>Software Developer</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row g-4 justify-content-center">
-              <div class="col-12">
-                <div class="team-card">
-                  <img src="src/yogesh.png" alt="K.Selva Karthick">
-                  <h5><span>Yogeshwaran</span></h5>
-                  <p>Software Developer</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row g-4 justify-content-center">
-              <div class="col-12">
-                <div class="team-card">
-                  <img src="src/vishnu.jpg" alt="R.Vishnu">
-                  <h5><span>Vishnu</span></h5>
-                  <p>Software Developer</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row g-4 justify-content-center">
-              <div class="col-12">
-                <div class="team-card">
-                  <img src="src/Rethanya.jpeg" alt="R.Vishnu">
-                  <h5><span>Rethanya</span></h5>
-                  <p>Software Developer</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row g-4 justify-content-center">
-              <div class="col-12">
-                <div class="team-card">
-                  <img src="src/shalini.jpg" alt="R.Vishnu">
-                  <h5><span>Shaalini</span></h5>
-                  <p>Web Developer</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row g-4 justify-content-center">
-              <div class="col-12">
-                <div class="team-card">
-                  <img src="src/rohini.jpg" alt="R.Vishnu">
-                  <h5><span>Rohini</span></h5>
-                  <p>Web Developer</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row g-4 justify-content-center">
-              <div class="col-12">
-                <div class="team-card">
-                  <img src="src/arpita.png" alt="R.Vishnu">
-                  <h5><span>Arpita</span></h5>
-                  <p>Web Developer</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row g-4 justify-content-center">
-              <div class="col-12">
-                <div class="team-card">
-                  <img src="src/aravindh.jpg" alt="R.Vishnu">
-                  <h5><span>Aravindh kumar</span></h5>
-                  <p>Web Developer</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#softwareCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#softwareCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
   </section>
-<!-- ================= END TEAM SECTION ================= -->
+
+  <!-- ARIVU DETAILED MODAL -->
+  <div id="arivu-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/90 backdrop-blur-md modal-close"></div>
+
+    <!-- Modal Content -->
+    <div
+      class="relative bg-white text-gray-900 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl flex flex-col scrollbar-hide border border-white/10"
+      data-aos="zoom-in" data-aos-duration="400">
+      <!-- Close Button -->
+      <button
+        class="absolute top-6 right-6 z-20 text-white/70 hover:text-white modal-close bg-black/20 hover:bg-black/40 w-10 h-10 rounded-full flex items-center justify-center transition-all">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <!-- Header -->
+      <div
+        class="bg-[#004269] p-10 md:p-16 flex flex-col md:flex-row items-center md:items-center space-y-8 md:space-y-0 md:space-x-12 text-white relative overflow-hidden shrink-0">
+        <div class="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+        <div
+          class="relative w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-[#B14BF3] shrink-0 shadow-2xl z-10">
+          <img src="src/Arivu.png" alt="Arivu Pandeeswaran V" class="w-full h-full object-cover">
+        </div>
+        <div class="text-center md:text-left relative z-10">
+          <h2 class="text-3xl md:text-3xl font-black uppercase tracking-tight mb-4 leading-none">Arivu Pandeeswaran V
+          </h2>
+          <span
+            class="inline-block px-6 py-2.5 bg-[#CDF5FD] text-[#004269] text-[10px] md:text-xs font-extrabold rounded-full uppercase tracking-widest">Founder
+            Director of Vaisoverse Technology</span>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="p-8 md:p-12 space-y-12">
+        <p class="text-base text-gray-600 leading-relaxed font-medium">
+          A pioneering company at the forefront of Deep Tech and Artificial Intelligence. With a focus on
+          transforming cutting-edge AI innovations into scalable solutions, I lead the strategic direction and
+          growth of the company, driving impactful technological advancements for the future.
+        </p>
+
+        <!-- Education & Experience -->
+        <section>
+          <div class="flex items-center space-x-4 mb-8">
+            <h3 class="text-3xl font-black text-[#004269] italic">Education & Experience</h3>
+            <div class="h-0.5 flex-grow bg-[#004269]/10"></div>
+          </div>
+          <div class="space-y-10">
+            <div class="flex flex-col md:flex-row border-b border-gray-100 pb-8">
+              <span class="w-24 font-black text-xl text-gray-500 mb-2 md:mb-0">2024</span>
+              <div class="flex-1 md:pl-6">
+                <h4 class="text-lg font-black text-gray-800 uppercase tracking-tight">IT Manager</h4>
+                <p class="text-sm font-black text-[#004269]">Youth Hostel Association of India</p>
+                <p class="text-sm text-gray-500 mt-3 leading-relaxed">Responsible for website maintenance
+                  activities such as content updates, bug fixing, performance optimization, and ensuring
+                  cross-browser compatibility. Regularly monitored website functionality, resolved technical
+                  issues, and supported overall site reliability and user experience.</p>
+              </div>
+            </div>
+            <div class="flex flex-col md:flex-row border-b border-gray-100 pb-8">
+              <span class="w-24 font-black text-xl text-gray-500 mb-2 md:mb-0">2018</span>
+              <div class="flex-1 md:pl-6">
+                <h4 class="text-lg font-black text-gray-800 uppercase tracking-tight">Master of Technology</h4>
+                <p class="text-sm font-medium text-gray-500">(Information and Communication Technologies)</p>
+                <p class="text-sm font-black text-[#004269] mt-1">Manonmaniam Sundaranar University</p>
+                <p class="text-xs font-bold text-gray-400 mt-1 uppercase tracking-widest">Tirunelveli.</p>
+              </div>
+            </div>
+            <div class="flex flex-col md:flex-row">
+              <span class="w-24 font-black text-xl text-gray-500 mb-2 md:mb-0">2016</span>
+              <div class="flex-1 md:pl-6">
+                <h4 class="text-lg font-black text-gray-800 uppercase tracking-tight">Bachelor of Technology</h4>
+                <p class="text-sm font-medium text-gray-500">(Information and Communication Technologies)</p>
+                <p class="text-sm font-black text-[#004269] mt-1">Manonmaniam Sundaranar University</p>
+                <p class="text-xs font-bold text-gray-400 mt-1 uppercase tracking-widest">Tirunelveli.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Professional Core Expertise -->
+        <section class="bg-gray-50 p-8 rounded-3xl border border-gray-100">
+          <h3 class="text-3xl font-black text-black mb-8 italic">Professional Core Expertise</h3>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-sm text-gray-700">
+            <li class="flex items-center space-x-3">
+              <span class="w-2 h-2 bg-[#B14BF3] rounded-full"></span>
+              <span class="font-bold">Software Development & System Architecture</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <span class="w-2 h-2 bg-[#B14BF3] rounded-full"></span>
+              <span class="font-bold">Cloud Computing & SaaS Solutions</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <span class="w-2 h-2 bg-[#B14BF3] rounded-full"></span>
+              <span class="font-bold">Data Analysis & Digital Transformation</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <span class="w-2 h-2 bg-[#B14BF3] rounded-full"></span>
+              <span class="font-bold">AI / Automation Integration</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <span class="w-2 h-2 bg-[#B14BF3] rounded-full"></span>
+              <span class="font-bold">Cybersecurity & Performance Optimization</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <span class="w-2 h-2 bg-[#B14BF3] rounded-full"></span>
+              <span class="font-bold">Research & Innovation</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <span class="w-2 h-2 bg-[#B14BF3] rounded-full"></span>
+              <span class="font-bold">Quantum Communication</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <span class="w-2 h-2 bg-[#B14BF3] rounded-full"></span>
+              <span class="font-bold">Internet of Things</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Reach out! -->
+        <section class="pt-6">
+          <div class="flex items-center space-x-4 mb-6">
+            <h3 class="text-3xl font-black text-[#004269] italic">Reach out!</h3>
+            <div class="h-0.5 flex-grow bg-[#004269]/10"></div>
+          </div>
+          <div class="flex flex-wrap items-center gap-y-4 gap-x-8 text-sm font-black text-gray-500">
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-[#004269]" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z">
+                </path>
+              </svg>
+              <span>+91 9566985698</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-[#004269]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+              </svg>
+              <span>vaisoverse@gmail.com</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-[#004269]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C7.598 4.285 9.227 4 10 4c.773 0 2.402.285 3.756 1.321a6.012 6.012 0 011.912 2.706c.395.962.333 1.917-.184 2.825-.514.905-1.5 1.558-2.607 1.834a3.001 3.001 0 11-5.754 0c-1.107-.276-2.093-.929-2.607-1.834-.517-.908-.579-1.863-.184-2.825z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <span>www.vaisoverse.in</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="container text-center">
-      <p class="mb-1">&copy; A Unit of Veera Group of Company. All Rights Reserved by Vaisoverse Technology.</p>
-      <p class="mb-0">
-        <a href="https://www.instagram.com/vaisovers/?next=%2F" class="text-white me-3"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="text-white me-3" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
-        <a href="https://www.linkedin.com/in/vaiso-verse-technology-4877b3367/" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
-        <a href="https://www.youtube.com/@Vaisoverse" class="text-white"><i class="bi bi-youtube"></i></a>
-      </p>
+  <footer class="pt-20 pb-10 bg-black border-t border-white/5 relative overflow-hidden">
+    <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-purple-500/5 rounded-full blur-[80px]"></div>
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-10">
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-8">
+          <a href="sam.html#home" class="flex items-center space-x-4">
+            <img src="Vaisoverse Technology.png" alt="Logo" class="h-12 w-auto">
+            <div class="flex flex-col">
+              <span class="text-2xl font-black tracking-tight text-white">Vaisoverse Technology</span><br>
+              <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30 italic">Innovating
+                Intelligent Digital Solutions</span>
+            </div>
+          </a>
+
+          <!-- Footer Search Bar -->
+          <div class="relative group max-w-sm">
+            <input type="text" placeholder="Search Vaisoverse..."
+              class="w-full bg-white/5 border border-white/10 rounded-xl px-10 py-3 focus:outline-none focus:border-purple-500 transition-all text-xs font-medium backdrop-blur-md">
+            <svg
+              class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 group-focus-within:text-purple-500 transition-colors"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </div>
+
+          <div class="flex space-x-4">
+            <a href="https://www.instagram.com/vaisovers/?next=%2F" target="_blank"
+              class="w-10 h-10 rounded-xl glass-card flex items-center justify-center hover:bg-gradient-to-tr hover:from-purple-600 hover:to-pink-500 transition-all text-white/40 hover:text-white">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/share/15SFr2X8E4/" target="_blank"
+              class="w-10 h-10 rounded-xl glass-card flex items-center justify-center hover:bg-blue-600 transition-all text-white/40 hover:text-white">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@Vaisoverse" target="_blank"
+              class="w-10 h-10 rounded-xl glass-card flex items-center justify-center hover:bg-red-600 transition-all text-white/40 hover:text-white">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+              </svg>
+            </a>
+            <a href="https://in.linkedin.com/in/vaiso-verse-technology-4877b3367" target="_blank"
+              class="w-10 h-10 rounded-xl glass-card flex items-center justify-center hover:bg-[#0077b5] transition-all text-white/40 hover:text-white">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Columns -->
+        <div class="pt-2">
+          <ul class="space-y-4">
+            <li><a href="sam.html#home" class="text-sm text-white/40 hover:text-white transition-colors">Home</a>
+            </li>
+            <li><a href="sam.html#about" class="text-sm text-white/40 hover:text-white transition-colors">About</a>
+            </li>
+            <li><a href="sam.html#products"
+                class="text-sm text-white/40 hover:text-white transition-colors">Products</a></li>
+          </ul>
+        </div>
+        <div class="pt-2">
+          <ul class="space-y-4">
+            <li><a href="sam.html#innovation"
+                class="text-sm text-white/40 hover:text-white transition-colors">Innovation</a></li>
+            <li><a href="sam.html#tech" class="text-sm text-white/40 hover:text-white transition-colors">Tech
+                Stack</a></li>
+            <li><a href="sam.html#careers" class="text-sm text-white/40 hover:text-white transition-colors">Careers</a>
+            </li>
+          </ul>
+        </div>
+        <div class="pt-2">
+          <ul class="space-y-4">
+            <li><a href="team" class="text-sm text-white/40 hover:text-white transition-colors">Team</a></li>
+            <li><a href="sam.html#faq" class="text-sm text-white/40 hover:text-white transition-colors">FAQ</a></li>
+            <li><a href="sam.html#contact" class="text-[var(--accent-violet)] text-sm font-bold hover:underline">Connect
+                Now</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-white/5 flex flex-col md:flex-row justify-end items-center">
+        <p class="text-[10px] uppercase tracking-[0.4em] text-white/30 font-black text-center md:text-right">©
+          All Rights Reserved. Vaisoverse Technology Pvt Ltd.</p>
+      </div>
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Team Slider Script -->
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    // Show loading spinner
-    const loadingSpinner = document.createElement('div');
-    loadingSpinner.className = 'loading-spinner';
-    loadingSpinner.innerHTML = `
-      <div class="spinner-container">
-        <div class="spinner-circle"></div>
-        <div class="spinner-logo"></div>
-      </div>
-    `;
-    document.body.appendChild(loadingSpinner);
-
-    // Hide loading spinner when page is fully loaded
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        loadingSpinner.classList.add('hidden');
-        setTimeout(() => {
-          loadingSpinner.remove();
-        }, 500);
-      }, 1000);
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-out-cubic'
     });
 
-    // Initialize team slider
-    document.addEventListener('DOMContentLoaded', function() {
-      const teamSliders = document.querySelectorAll('.team-carousel');
-      
-      teamSliders.forEach(function(slider) {
-        const carousel = new bootstrap.Carousel(slider, {
-          interval: 3000,
-          wrap: true,
-          touch: true
-        });
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+      const spans = menuBtn.querySelectorAll('span');
+      spans[0].classList.toggle('rotate-45'); spans[0].classList.toggle('translate-y-2');
+      spans[1].classList.toggle('opacity-0');
+      spans[2].classList.toggle('-rotate-45'); spans[2].classList.toggle('-translate-y-2');
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
       });
+    });
+
+    // Header Scroll Effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('main-header');
+      const backToTop = document.getElementById('back-to-top');
+
+      if (window.scrollY > 50) {
+        header.classList.add('py-2');
+        header.classList.remove('py-4');
+      } else {
+        header.classList.add('py-4');
+        header.classList.remove('py-2');
+      }
+
+      if (window.scrollY > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Arivu Modal Logic
+    const arivuCard = document.getElementById('arivu-card');
+    const arivuModal = document.getElementById('arivu-modal');
+    const closeBtns = document.querySelectorAll('.modal-close');
+
+    arivuCard?.addEventListener('click', () => {
+      arivuModal.classList.remove('hidden');
+      arivuModal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+      // Trigger AOS in modal
+      const modalContent = arivuModal.querySelector('[data-aos]');
+      if (modalContent) {
+        modalContent.classList.remove('aos-animate');
+        setTimeout(() => modalContent.classList.add('aos-animate'), 50);
+      }
+    });
+
+    closeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        arivuModal.classList.add('hidden');
+        arivuModal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+      });
+    });
+
+    // Close on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !arivuModal.classList.contains('hidden')) {
+        arivuModal.classList.add('hidden');
+        arivuModal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+      }
     });
   </script>
 </body>
+
 </html>
-
-

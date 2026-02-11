@@ -1,1391 +1,1106 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vaisoverse Technology | Software & IT Services</title>
-  <meta name="description" content="V Tech Solutions delivers software development, web development, mobile apps, cloud solutions, and IT consulting. Explore pricing tiers, careers, FAQs, and contact us." />
-  <link rel="icon" href="VTech.png"  type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Virgo:wght@400;800&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<html lang="en" class="scroll-smooth">
 
-  <!-- Favicon generated from the inline SVG logo below -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%23004d4d'/%3E%3Cstop offset='1' stop-color='%23003333'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='128' height='128' rx='18' fill='url(%23g)'/%3E%3Cpath d='M28 88l18-48h16l18 48h-14l-3.6-11H45.6L42 88H28zm21-22h18l-9-26-9 26z' fill='%23ffcc66'/%3E%3C/ svg%3E">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaisoverse Technology | Innovating Intelligent Digital Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="icon" href="Vaisoverse Technology.png" type="image/png">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    :root{
-      --purple-primary:#A100FF;
-      --purple-dark:#A100FF;
-      --purple-light:#a78bfa;
-      --cream:rgb(27, 27, 26);
-      --amber:#A100FF;
-      --smoke:#333333;
+    :root {
+      --primary-purple: #8E2AAE;
+      --dark-purple: #5E1B74;
+      --accent-violet: #B85AD9;
+      --bg-dark: #0B0B0F;
+      --surface-dark: #14141C;
+      --text-primary: #FFFFFF;
+      --text-secondary: #CFC7D6;
     }
 
-    /* Loading Spinner */
-    .loading-spinner {
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .font-heading {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Glassmorphism Classes */
+    .glass-header {
+      background: rgba(11, 11, 15, 0.7);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .glass-card {
+      background: rgba(20, 20, 28, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card:hover {
+      background: rgba(30, 30, 40, 0.8);
+      border-color: var(--accent-violet);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 25px 50px -12px rgba(142, 42, 174, 0.4);
+    }
+
+    /* Hero Animation (Video-like Mesh Gradient) */
+    .hero-mesh {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(at 0% 0%, hsla(285, 60%, 20%, 1) 0, transparent 50%),
+        radial-gradient(at 50% 0%, hsla(260, 50%, 15%, 1) 0, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(285, 60%, 20%, 1) 0, transparent 50%),
+        radial-gradient(at 0% 50%, hsla(260, 50%, 15%, 1) 0, transparent 50%),
+        radial-gradient(at 50% 50%, hsla(285, 60%, 10%, 1) 0, transparent 50%),
+        radial-gradient(at 100% 50%, hsla(260, 50%, 15%, 1) 0, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(285, 60%, 20%, 1) 0, transparent 50%),
+        radial-gradient(at 50% 100%, hsla(260, 50%, 15%, 1) 0, transparent 50%),
+        radial-gradient(at 100% 100%, hsla(285, 60%, 20%, 1) 0, transparent 50%);
+      background-color: #0B0B0F;
+      filter: blur(80px);
+      animation: mesh-flow 20s ease infinite alternate;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    @keyframes mesh-flow {
+      0% {
+        transform: scale(1) translate(0, 0);
+      }
+
+      50% {
+        transform: scale(1.1) translate(-2%, -2%);
+      }
+
+      100% {
+        transform: scale(1) translate(2%, 2%);
+      }
+    }
+
+    /* Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Product Card Staggered Delay Simulation via JS or CSS classes */
+    .reveal-stagger:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-stagger:nth-child(2) {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-stagger:nth-child(3) {
+      transition-delay: 0.3s;
+    }
+
+    .reveal-stagger:nth-child(4) {
+      transition-delay: 0.4s;
+    }
+
+    /* Hover Underscore Animation */
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-violet);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Button Ripple Effect */
+    .btn-ripple {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .btn-ripple:hover {
+      box-shadow: 0 0 20px rgba(184, 90, 217, 0.4);
+      transform: scale(1.02);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--dark-purple);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-purple);
+    }
+
+    /* Modal Styles */
+    #modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    #modal-overlay.active {
+      display: flex;
+    }
+
+    /* Noise Overlay for texture */
+    body::before {
+      content: "";
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      transition: opacity 0.5s ease;
-    }
-
-    .spinner-container {
-      position: relative;
-      width: 120px;
-      height: 120px;
-    }
-
-    .spinner-circle {
-      width: 100%;
-      height: 100%;
-      border: 4px solid rgba(161, 0, 255, 0.3);
-      border-top: 4px solid var(--purple-primary);
-      border-radius: 50%;
-      animation: spin 1.5s linear infinite;
-    }
-
-    .spinner-logo {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 60px;
-      height: 60px;
-      background: url('VTech.png') no-repeat center center;
-      background-size: contain;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .loading-spinner.hidden {
-      opacity: 0;
       pointer-events: none;
-    }
-    html{scroll-behavior:smooth}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;background-color:#000000;color:#ffffff;line-height:1.6}
-
-    /* Header / Navbar */
-    .navbar{background:#000000; box-shadow:0 0 15px rgba(191, 20, 243, 0.8), 0 0 30px rgba(255,255,255,0.4)}
-    .navbar .nav-link{color:#ffffff!important; text-shadow:0 0 10px rgba(255,255,255,0.8); padding: 0.5rem 1rem; border-radius: 4px; transition: all 0.3s ease}
-    .navbar .nav-link:hover{color:#ffffff!important; background-color: var(--purple-primary); text-shadow:0 0 15px #ffffff; box-shadow: 0 0 10px var(--purple-primary)}
-    .brand-logo{display:flex;align-items:center;gap:.55rem;color:#fff;text-decoration:none}
-    .brand-logo svg{height:36px;width:auto}
-    .brand-logo span{
-      font-family: 'Virgo', sans-serif;
-      font-weight: 800; 
-      letter-spacing: .08em; 
-      color: #fff; 
-
-      overflow: hidden; 
-      border-right: 3px solid #fff;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      z-index: 1;
     }
 
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
+    /* Floating Buttons */
+    .floating-btns {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
-    @keyframes blink-caret {
-      from, to { border-color: transparent; }
-      50% { border-color: #fff; }
+    .float-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .hero{
-        position:relative;
-        min-height:70vh;
-        display:grid; place-items:center;
-        color:#fff;
-        text-align:center;
-        background-size: cover;
-        background-position: center;
-        transition: background-image 1s ease-in-out;
-      }
-    .hero h1{font-size: clamp(2rem, 4.2vw, 3.2rem); font-weight:800; color:#ffffff; text-shadow:0 6px 30px rgba(0,0,0,.45)}
-    .hero p{max-width:850px;margin:.75rem auto 1.25rem; color:#f1f6f6}
-    .hero .btn-warning{background:var(--purple-primary);border:none;color:#ffffff;font-weight:700;box-shadow:0 0 15px var(--purple-primary), 0 0 30px rgba(139, 92, 246, 0.4)}
-    .hero .btn-outline-light{border-width:2px;border-color:#ffffff;color:#ffffff;text-shadow:0 0 10px rgba(255,255,255,0.8)}
-    .hero .btn-outline-light:hover{background:var(--purple-primary);border-color:var(--purple-primary);box-shadow:0 0 20px var(--purple-primary)}
-    .hero .badges{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
-    .hero .badge{background:rgba(2, 2, 2, 0.12);border:1px solid rgba(255,255,255,.18);padding:.55rem .8rem}
-
-    /* Section helpers */
-    section{padding:80px 0}
-    .section-title{font-weight:800;color:#ffffff;margin-bottom:1.25rem}
-    .section-sub{color:#ffffff;max-width:850px}
-    .divider {
-        border: 0;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, var(--purple-primary), transparent);
-        margin: 40px auto;
-        width: 80%;
-        max-width: 600px;
+    .float-btn:hover {
+      transform: scale(1.1) translateY(-5px);
     }
 
-    /* about */
-    .about-card{background:linear-gradient(135deg, #000000, #350153);border:2px solid #A100FF;border-radius:16px;padding:24px;box-shadow:0 6px 26px rgba(161, 0, 255, 0.3);color:#ffffff}
-    .about-card strong{color:#ffffff}
-
-    /* Services + pricing */
-    .tier{border:1px solid #A100FF;border-radius:16px;overflow:hidden;background:#000000;box-shadow:0 6px 16px #A100FF;transition:transform .2s ease}
-    .text-muted {
-        color: #ffffff !important; /* Change text-muted color to white */
-    }
-    .tier:hover{transform:translateY(-4px)}
-    .tier-header{padding:22px;background:linear-gradient(135deg,#A100FF,#000000)}
-    .tier-header .title{font-weight:800}
-    .tier-price{font-size:2rem;font-weight:800;color:var(--teal)}
-.check{color:#A100FF}
-.x{color:#A100FF}
-    .tier .btn{font-weight:700}
-    
-    /* Custom Purple Button Styles */
-    .btn-purple {
-      background-color: var(--purple-primary);
-      border-color: var(--purple-primary);
+    #back-to-top {
+      background: var(--surface-dark);
       color: white;
+      opacity: 0;
+      visibility: hidden;
     }
-    .btn-purple:hover {
-      background-color: var(--purple-dark);
-      border-color: var(--purple-dark);
+
+    #back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .whatsapp-btn {
+      background: #25D366;
       color: white;
-    }
-    .btn-outline-purple {
-      background-color: transparent;
-      border-color: var(--purple-primary);
-      color: var(--purple-primary);
-    }
-    .btn-outline-purple:hover {
-      background-color: var(--purple-primary);
-      border-color: var(--purple-primary);
-      color: white;
-    }
-
-    /* Careers */
-    .careers{background:#000000}
-    .opening{border:1px solid #e4eeee;border-radius:14px;padding:18px;background:#000000}
-    .careers .btn-outline-primary {
-        border-color: var(--purple-primary);
-        color: var(--purple-primary);
-        transition: all 0.3s ease;
-    }
-    .careers .btn-outline-primary:hover {
-        background-color: var(--purple-primary);
-        border-color: var(--purple-primary);
-        color: #ffffff;
-        box-shadow: 0 0 10px var(--purple-primary);
-    }
-
-    /* FAQ */
-    .accordion-button:not(.collapsed){background:#A100FF;color:#000000}
-    .accordion-button:focus{box-shadow:#A100FF}
-
-    /* Contact */
-    .contact{background:var(--teal-dark);color:#e9fbfb}
-    .contact .card{background:#000000;border:1px solid #A100FF;color:#e9fbfb}
-    .contact .form-control,.contact .form-select{background:#141414;border-color:#A100FF;color:#e9fbfb}
-    .contact .form-control::placeholder{color:#f8f8f8}
-    .contact .btn-warning{background:var(--amber);border:1px solid var(--amber);color:white;font-weight:800}
-    
-    /* Contact login buttons hover effect */
-    .contact .btn-outline-light {
-        border-color: #ffffff;
-        color: #ffffff;
-        transition: all 0.3s ease;
-    }
-    .contact .btn-outline-light:hover {
-        background-color: var(--purple-primary);
-        border-color: var(--purple-primary);
-        color: #ffffff;
-        box-shadow: 0 0 10px var(--purple-primary);
-    }
-
-    /* Footer */
-    footer{background:#A100FF;color:#a3c2c2}
-    footer a{color:#A100FF;text-decoration:none}
-    footer a:hover{text-decoration:underline}
-
-    footer {
-      margin-top: 30px;
-      padding: 20px 0;
-      background-color: #000000;
-      border-top: 1px solid #A100FF;
-      text-align: center;
-    }
-    footer a {
-      margin: 0 10px;
-      color: #ffffff;
-      font-size: 1.5rem;
-      text-decoration: none;
-    }
-    footer a:hover {
-      color: #A100FF;
-    }
-
-    /* Mobile Navigation Drawer Styles */
-    @media (max-width: 991.98px) {
-      .navbar-collapse {
-        background: linear-gradient(135deg, #A100FF, #8A2BE2);
-        padding: 1rem;
-        border-radius: 8px;
-        margin-top: 10px;
-        box-shadow: 0 0 20px rgba(161, 0, 255, 0.5);
-      }
-      
-      .navbar-collapse .nav-link {
-        color: #ffffff !important;
-        padding: 0.75rem 1rem;
-        margin: 0.25rem 0;
-        border-radius: 4px;
-        transition: all 0.3s ease;
-      }
-      
-      .navbar-collapse .nav-link:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: translateX(5px);
-      }
-      
-      .navbar-collapse .dropdown-menu {
-        background: rgba(161, 0, 255, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-      }
-      
-      .navbar-collapse .dropdown-item {
-        color: #ffffff;
-      }
-      
-      .navbar-collapse .dropdown-item:hover {
-        background: rgba(255, 255, 255, 0.2);
-        color: #ffffff;
-      }
     }
   </style>
 </head>
-<body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-       <a class="brand-logo" href="#home" aria-label="V Tech Solutions">
-  <!-- Downward-pointing Sleek Impossible Triangle Logo -->
-  <img src="VTech.png" style="height:50px; width:auto;">
-  <h5>Vaisoverse Technology</h5>
-</a>
+<body class="selection:bg-purple-500/30 selection:text-white">
 
-      <button class="navbar-toggler" style="background-color: var(--purple-primary); color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-        <span class="navbar-toggler-icon"></span>
+  <!-- FLOATING BUTTONS -->
+  <div class="floating-btns">
+    <button id="back-to-top" class="float-btn" onclick="scrollToTop()" title="Back to Top">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18">
+        </path>
+      </svg>
+    </button>
+    <a href="https://wa.me/919566985698" target="_blank" class="float-btn whatsapp-btn" title="Chat on WhatsApp">
+      <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.432h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+      </svg>
+    </a>
+  </div>
+
+  <!-- MODAL (Success Simulation) -->
+  <div id="modal-overlay" class="items-center justify-center p-6">
+    <div class="glass-card max-w-md w-full p-10 rounded-[2.5rem] text-center">
+      <div
+        class="w-20 h-20 bg-emerald-500/20 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+      </div>
+      <h3 class="text-3xl font-black mb-4">Transmission Successful</h3>
+      <p class="text-white/60 mb-8">Your data has been securely uploaded to our intelligence grid. Our architects
+        will contact you shortly.</p>
+      <button onclick="closeModal()"
+        class="px-10 py-3 bg-white text-black font-black rounded-xl hover:bg-emerald-500 hover:text-white transition-all">Close
+        Instance</button>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header id="main-header" class="fixed top-0 left-0 w-full z-50 glass-header py-4 transition-all duration-500">
+    <nav class="container mx-auto px-4 md:px-6 flex items-center justify-between">
+      <a href="#home" class="flex items-center space-x-3 group">
+        <img src="Vaisoverse Technology.png" alt="VAISO VERSE Logo" class="h-10 w-auto">
+        <div class="flex flex-col">
+          <span
+            class="text-xl font-extrabold tracking-tight text-white group-hover:text-[var(--accent-violet)] transition-colors">Vaisoverse
+            Technology</span>
+          <span class="text-[10px] uppercase tracking-[0.2em] font-medium text-white/50 leading-none">Innovating
+            Intelligent Digital Solutions</span>
+        </div>
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex items-center space-x-8">
+        <a href="#home" class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">Home</a>
+        <a href="#about"
+          class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">About</a>
+        <a href="#products"
+          class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">Products</a>
+        <a href="#innovation"
+          class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">Innovation</a>
+        <a href="#tech" class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">Tech
+          Stack</a>
+        <a href="#careers"
+          class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">Careers</a>
+        <a href="#faq" class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">FAQ</a>
+        <a href="team.html"
+          class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">Team</a>
+        <a href="#contact"
+          class="px-6 py-2.5 bg-gradient-to-r from-[var(--primary-purple)] to-[var(--accent-violet)] rounded-full text-sm font-bold btn-ripple">Connect
+          Now</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="menu-toggle" class="lg:hidden flex flex-col space-y-1.5 focus:outline-none z-50">
+        <span class="w-6 h-0.5 bg-white transition-all"></span>
+        <span class="w-6 h-0.5 bg-white transition-all"></span>
+        <span class="w-6 h-0.5 bg-white transition-all"></span>
       </button>
+    </nav>
+  </header>
 
-      <div id="nav" class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="#about">About us </a></li>
-          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="#careers">Careers</a></li>
-          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact us</a></li>
-          
-     <li class="nav-item dropdown ms-lg-3">
-            <a class="btn btn-outline-light dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="bi bi-box-arrow-in-right me-1"></i>Login</a>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" href="login.html"><i class="bi bi-briefcase me-2"></i>Employee Login</a></li>
-              <li><a class="dropdown-item" href="customer-login.html"><i class="bi bi-person-badge me-2"></i>Customer Login</a></li>
-            </ul>
-          </li>
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu"
+    class="fixed inset-0 bg-[var(--bg-dark)] z-40 hidden flex-col items-center justify-start pt-24 pb-12 space-y-6 lg:hidden transition-all duration-500 overflow-y-auto">
+    <a href="#home" class="text-2xl font-bold mobile-link">Home</a>
+    <a href="#about" class="text-2xl font-bold mobile-link">About</a>
+    <a href="#products" class="text-2xl font-bold mobile-link">Products</a>
+    <a href="#innovation" class="text-2xl font-bold mobile-link">Innovation</a>
+    <a href="#tech" class="text-2xl font-bold mobile-link">Tech Stack</a>
+    <a href="#careers" class="text-2xl font-bold mobile-link">Careers</a>
+    <a href="#faq" class="text-2xl font-bold mobile-link">FAQ</a>
+    <a href="team.html" class="text-2xl font-bold mobile-link">Team</a>
+    <a href="#contact" class="text-2xl font-bold mobile-link text-[var(--accent-violet)]">Contact</a>
+  </div>
 
-        <a class="btn btn-outline-light btn-sm ms-3" href="team.html">
-          <i class="bi bi-people-fill me-2"></i>Our Team
+  <!-- HERO SECTION -->
+  <section id="home" class="min-h-screen relative flex items-center justify-center overflow-hidden pt-20"
+    data-aos="fade-up">
+    <div class="hero-mesh"></div>
+    <div class="absolute inset-0 z-0 bg-black/40"></div>
+
+    <div class="container mx-auto px-4 md:px-6 relative z-10 text-center"><br>
+      <!-- Search Bar -->
+      <div class="max-w-2xl mx-auto mb-10 reveal">
+        <div class="relative group">
+          <input type="text" placeholder="Search for intelligent solutions..."
+            class="w-full bg-white/5 border border-white/10 rounded-2xl px-12 py-5 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium backdrop-blur-md">
+          <svg
+            class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/30 group-focus-within:text-purple-500 transition-colors"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="inline-block px-4 py-1.5 mb-6 glass-card rounded-full ring-1 ring-white/10">
+        <span class="text-xs font-bold tracking-[0.3em] uppercase text-purple-400">Enterprise Intelligent
+          Systems</span>
+      </div>
+
+      <h1 class="text-4xl md:text-7xl lg:text-8xl font-black tracking-tight mb-8 leading-[1.2] md:leading-[1.1]">
+        Engineering the <span
+          class="bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary-purple)] to-[var(--accent-violet)]">Future</span><br>
+        of Intelligent Technology
+      </h1>
+
+      <p class="text-lg md:text-xl text-[var(--text-secondary)] max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
+        Empowering the next generation of global enterprises through custom-built software architectures and
+        cognitive computing solutions.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+        <a href="#products"
+          class="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-[var(--primary-purple)] to-[var(--dark-purple)] rounded-xl text-lg font-extrabold btn-ripple shadow-lg shadow-purple-500/20">
+          Explore Solutions
+        </a>
+        <a href="#careers"
+          class="w-full sm:w-auto px-10 py-4 glass-card rounded-xl text-lg font-extrabold hover:bg-white/5 transition-colors">
+          Join Our Journey
         </a>
       </div>
     </div>
-  </nav>
 
-  <!-- HERO -->
-  <header id="home" class="hero">
-    <div class="container">
-      <h1><span id="typing-text"></span></h1>
-      <p class="lead">Your trusted partner for <strong>software development</strong>, <strong>web experiences</strong>, <strong>mobile apps</strong>, <strong>cloud solutions</strong>, and <strong>IT consulting</strong>.</p>
-      <div class="d-flex justify-content-center gap-2">
-        <a class="btn btn-warning btn-lg" href="#services"><i class="bi bi-grid-1x2-fill me-2"></i>Our Services</a>
-        <a class="btn btn-outline-light btn-lg" href="#contact"><i class="bi bi-envelope-paper me-2"></i>Get in Touch</a>
-      </div>
-      <div class="badges">
-        <span class="badge rounded-pill"><i class="bi bi-shield-check me-1"></i>Secure by Design</span>
-        <span class="badge rounded-pill"><i class="bi bi-rocket-takeoff me-1"></i>Scalable</span>
-        <span class="badge rounded-pill"><i class="bi bi-lightning-charge me-1"></i>Fast Delivery</span>
-      </div>
-    </div>
-  </header>
-
-  <!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="row g-4 align-items-center">
-      <div class="col-lg-6">
-        <h2 class="section-title">About Vaisoverse Technology<h2>
-        <p class="section-sub">
-          Vaisoverse Technology is a forward-thinking technology consultancy and engineering studio committed to helping organizations innovate faster, operate smarter, and scale securely. By combining startup agility with modern tools, we deliver high-impact software, cloud, and security solutions that empower businesses worldwide.
-        </p>
-        <div class="about-card mt-3">
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <div class="d-flex align-items-start">
-                <i class="bi bi-lightning-fill text-warning fs-3 me-2"></i>
-                <div><strong>Startup Energy</strong><br>Fast, focused, adaptive</div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="d-flex align-items-start">
-                <i class="bi bi-people-fill text-primary fs-3 me-2"></i>
-                <div><strong>Collaborative</strong><br>Partnering closely with clients</div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="d-flex align-items-start">
-                <i class="bi bi-cloud-check-fill text-info fs-3 me-2"></i>
-                <div><strong>Cloud-Native</strong><br>AWS, Azure, GCP ready</div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="d-flex align-items-start">
-                <i class="bi bi-shield-lock-fill text-success fs-3 me-2"></i>
-                <div><strong>Security-Focused</strong><br>Best practices from day one</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 text-center">
-        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" 
-             class="img-fluid rounded-4 shadow" 
-             alt="V Tech Solutions team brainstorming ideas">
-      </div>
-    </div>
-    
-  <div class="divider"></div>
-    <!-- Vision Section -->
-    <div class="row g-4 align-items-center mt-5">
-      <div class="col-lg-6">
-        <div class="d-flex align-items-center mb-3">
-          <div class="vision-icon animated-icon me-3">
-            <i class="bi bi-eye-fill"></i>
-          </div>
-          <h3 class="section-title mb-0" style="color: var(--purple-primary);">Vision</h3>
-        </div>
-        <p class="section-sub">
-          Leading the digital future with transformative technology that empowers people and businesses worldwide.
-        </p>
-        
-          <div class="d-flex align-items-center mb-3 mt-4">
-          <div class="mission-icon animated-icon me-3">
-            <i class="bi bi-nut-fill"></i>
-          </div>
-          <h3 class="section-title mb-0" style="color: var(--purple-primary);">Mission</h3>
-        </div>
-        <p class="section-sub">
-          Deliver smart, secure, and scalable solutions that solve real-world challenges and fuel business success.
-        </p>
-        <p class="section-sub">
-          Turn ideas into intelligent software, cloud, and security solutions.
-        </p>
-        <p class="section-sub">
-          Help businesses grow faster, operate smarter, and stay competitive.
-        </p>
-      </div>
-      <div class="col-lg-6 text-center">
-        <div class="about-card">
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <div class="d-flex align-items-start">
-                <i class="bi bi-eye-fill text-warning fs-3 me-2"></i>
-                <div><strong>Future-Focused</strong><br>Leading digital transformation</div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="d-flex align-items-start">
-                <i class="bi bi-target text-primary fs-3 me-2"></i>
-                <div><strong>Goal-Oriented</strong><br>Delivering measurable results</div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="d-flex align-items-start">
-                <i class="bi bi-lightbulb-fill text-info fs-3 me-2"></i>
-                <div><strong>Innovation-Driven</strong><br>Turning ideas into reality</div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="d-flex align-items-start">
-                <i class="bi bi-graph-up-arrow text-success fs-3 me-2"></i>
-                <div><strong>Growth-Minded</strong><br>Fueling business success</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <div class="divider"></div>
-
-
-  <ion style="color:#fff; background-color: var(--black-bg);" id="services">
-    <div class="container">
-      <h2 style="color:#A917FE" class="section-title text-center">Our Services & Pricing</h2>
-      <p class="section-sub mx-auto text-center">Simple, transparent tiers. Every plan includes project management, QA, and deployment support.</p>
-  
-      <!-- Software Development -->
-        
-      <div class="mt-3">
-        <h3 class="fw-bold mb-3"><i class="bi bi-cpu-fill text-primary me-2"></i>Software Development</h3>
-        <div class="row g-4">
-          <!-- Basic -->
-          <div class="col-md-4">
-
-            <div class="tier h-100">
-              <div class="tier-header">
-                <div class="title">Basic</div>
-                <div class="text-muted">MVPs & Proofs of Concept</div>
-              </div>
-              <div class="p-4">
-                <div class="tier-price">₹30,000 - ₹50,000</div>
-                <ul class="list-unstyled mt-3">
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>1 core module</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>REST API</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Basic auth & logging</li>
-                  <li class="mb-2"><i class="bi bi-x-circle x me-2"></i>Advanced analytics</li>
-                </ul>
-                <a href="#contact" class="btn btn-outline-purple w-100">Start Basic</a>
-              </div>
-            </div>
-          </div>
-          <!-- Standard -->
-          <div class="col-md-4">
-            <div class="tier h-100">
-              <div class="tier-header">
-                <div class="title">Standard</div>
-                <div class="text-muted">Scale-ready business apps</div>
-              </div>
-              <div class="p-4">
-                <div class="tier-price">₹50,000 – ₹1L</div>
-                <ul class="list-unstyled mt-3">
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>3–5 modules</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Role-based access</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Automated testing</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Cloud CI/CD</li>
-                </ul>
-                <a href="#contact" class="btn btn-outline-purple w-100">Choose Standard</a>
-              </div>
-            </div>
-          </div>
-          <!-- Advanced -->
-          <div class="col-md-4">
-            <div class="tier h-100">
-              <div class="tier-header">
-                <div class="title">Advanced</div>
-                <div class="text-muted">Enterprise & compliance</div>
-              </div>
-              <div class="p-4">
-                <div class="tier-price">₹1L – ₹1.5L</div>
-                <ul class="list-unstyled mt-3">
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Microservices / Event-driven</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>SOC2/ISO-ready</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Observability & SRE</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>24×7 support</li>
-                </ul>
-                <a href="#contact" class="btn btn-outline-purple w-100">Discuss Advanced</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Web Development -->
-      <div class="mt-5">
-        <h3 class="fw-bold mb-3"><i class="bi bi-globe2 text-primary me-2"></i>Web Development</h3>
-        <div class="row g-4">
-          <!-- Basic -->
-          <div class="col-md-4">
-            <div class="tier h-100">
-              <div class="tier-header"><div class="title">Basic</div><div class="text-muted">Launch fast</div></div>
-              <div class="p-4">
-                <div class="tier-price">₹15,000 - ₹20,000</div>
-                <ul class="list-unstyled mt-3">
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>5 pages, responsive</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>SEO basics</li>
-                  <li class="mb-2"><i class="bi bi-x-circle x me-2"></i>CMS</li>
-                </ul>
-                <a href="#contact" class="btn btn-outline-purple w-100">Start Basic</a>
-              </div>
-            </div>
-          </div>
-          <!-- Standard -->
-          <div class="col-md-4">
-            <div class="tier h-100">
-              <div class="tier-header"><div class="title">Standard</div><div class="text-muted">CMS + Forms</div></div>
-              <div class="p-4">
-                <div class="tier-price">₹30,000 – ₹45,000</div>
-                <ul class="list-unstyled mt-3">
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>10–15 pages</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Headless CMS</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Analytics & forms</li>
-                </ul>
-                <a href="#contact" class="btn btn-outline-purple w-100">Choose Standard</a>
-              </div>
-            </div>
-          </div>
-          <!-- Advanced -->
-          <div class="col-md-4">
-            <div class="tier h-100">
-              <div class="tier-header"><div class="title">Advanced</div><div class="text-muted">Web apps & e-com</div></div>
-              <div class="p-4">
-                <div class="tier-price">₹50,000 - ₹65,000</div>
-                <ul class="list-unstyled mt-3">
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Next.js/React SSR</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Payments & auth</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Performance budget</li>
-                </ul>
-                <a href="#contact" class="btn btn-outline-purple w-100">Discuss Advanced</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Mobile Development -->
-      <div class="mt-5">
-        <h3 class="fw-bold mb-3"><i class="bi bi-phone text-primary me-2"></i>Mobile App Development</h3>
-        <div class="row g-4">
-          <!-- Basic -->
-          <div class="col-md-4">
-            <div class="tier h-100">
-              <div class="tier-header"><div class="title">Basic</div><div class="text-muted">Single feature app</div></div>
-              <div class="p-4">
-                <div class="tier-price">₹30,000 - ₹50,000</div>
-                <ul class="list-unstyled mt-3">
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Flutter/React Native</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>iOS & Android build</li>
-                </ul>
-                <a href="#contact" class="btn btn-outline-purple w-100">Start Basic</a>
-              </div>
-            </div>
-          </div>
-          <!-- Standard -->
-          <div class="col-md-4">
-            <div class="tier h-100">
-              <div class="tier-header"><div class="title">Standard</div><div class="text-muted">Multi-feature app</div></div>
-              <div class="p-4">
-                <div class="tier-price">₹50,000 - ₹80,000</div>
-                <ul class="list-unstyled mt-3">
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Push, auth, offline</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Analytics & crashlytics</li>
-                </ul>
-                <a href="#contact" class="btn btn-outline-purple w-100">Choose Standard</a>
-              </div>
-            </div>
-          </div>
-          <!-- Advanced -->
-          <div class="col-md-4">
-            <div class="tier h-100">
-              <div class="tier-header"><div class="title">Advanced</div><div class="text-muted">High scale</div></div>
-              <div class="p-4">
-                <div class="tier-price">₹80,000 - ₹1L</div>
-                <ul class="list-unstyled mt-3">
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Native modules & CI/CD</li>
-                  <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Real-time sync & A/B</li>
-                </ul>
-                <a href="#contact" class="btn btn-outline-purple w-100">Discuss Advanced</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-    </div>
-  </section>
-  <!-- Software Products -->
-<section id="software-products" style="background-color: var(--black-bg);">
-  <div class="container">
-    <h2 class="section-title text-start">
-      <i class="bi bi-cpu-fill text-primary me-2"></i>Software Products
-    </h2>
-    
-    <div class="row g-4 mt-4">
-      <!-- Retail Product -->
-      <div class="col-md-4">
-        <div class="tier h-100 d-flex flex-column">
-          <div class="tier-header">
-            <div class="title">Retail Product</div>
-            <div class="text-muted">E-commerce & POS solutions</div>
-          </div>
-          <div class="p-4 flex-grow-1 d-flex flex-column justify-content-between">
-            <div>
-              <div class="tier-price">₹30K</div>
-              <ul class="list-unstyled mt-3">
-                <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Product catalog & inventory</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Shopping cart & checkout</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Basic reporting</li>
-                <li class="mb-2"><i class="bi bi-x-circle x me-2"></i>Advanced analytics</li>
-              </ul>
-            </div>
-            <a href="#contact" class="btn btn-outline-purple w-100">Start Retail</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- IoT Product -->
-      <div class="col-md-4">
-        <div class="tier h-100 d-flex flex-column">
-          <div class="tier-header">
-            <div class="title">IoT Product</div>
-            <div class="text-muted">Smart devices & automation</div>
-          </div>
-          <div class="p-4 flex-grow-1 d-flex flex-column justify-content-between">
-            <div>
-              <div class="tier-price">₹50k</div>
-              <ul class="list-unstyled mt-3">
-                <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Sensor integration</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Real-time monitoring</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Mobile dashboard</li>
-                <li class="mb-2"><i class="bi bi-x-circle x me-2"></i>Predictive analytics</li>
-              </ul>
-            </div>
-            <a href="#contact" class="btn btn-outline-purple w-100">Start IoT</a>
-          </div>
-        </div>
-      </div>
-    <!-- Hotel Management Product -->
-      <div class="col-md-4">
-        <div class="tier h-100 d-flex flex-column">
-          <div class="tier-header">
-            <div class="title">Hotel Management Product</div>
-            <div class="text-muted">Hotel Rooms Tracking </div>
-          </div>
-          <div class="p-4 flex-grow-1 d-flex flex-column justify-content-between">
-            <div>
-              <div class="tier-price">₹30k</div>
-              <ul class="list-unstyled mt-3">
-                <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Room Status Tracking</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Customer Management</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Basic reporting</li>
-                <li class="mb-2"><i class="bi bi-x-circle x me-2"></i>Advanced analytics</li>
-              </ul>
-            </div>
-            <a href="#contact" class="btn btn-outline-purple w-100">Start Hotel Management</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Staff Management Product -->
-      <div class="col-md-4">
-        <div class="tier h-100 d-flex flex-column">
-          <div class="tier-header">
-            <div class="title">Staff Management Product</div>
-            <div class="text-muted">HR & payroll automation</div>
-          </div>
-          <div class="p-4 flex-grow-1 d-flex flex-column justify-content-between">
-            <div>
-              <div class="tier-price">₹35k</div>
-              <ul class="list-unstyled mt-3">
-                <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Employee database</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Leave & attendance</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill check me-2"></i>Payroll automation</li>
-                <li class="mb-2"><i class="bi bi-x-circle x me-2"></i>Performance analytics</li>
-              </ul>
-            </div>
-            <a href="#contact" class="btn btn-outline-purple w-100">Start Staff Management</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-  
-
-  
-
-  <div class="divider"></div>
-  <!-- Technology Stack Slider -->
-  <section class="technology-slider">
-    <div class="container">
-      <h2 class="section-title text-center">Our Technology Stack</h2>
-<div class="slider">
-        <div class="slide"><img src="Stack logos/django.png" alt="Django" class="tech-icon"></div>
-        <div class="slide"><img src="Stack logos/flask.png" alt="Flask" class="tech-icon"></div>
-        <div class="slide"><img src="Stack logos/react.png" alt="React" class="tech-icon"></div>
-        <div class="slide"><img src="Stack logos/flutter.png" alt="Flutter" class="tech-icon"></div>
-        <div class="slide"><img src="Stack logos/angular.png" alt="Angular" class="tech-icon"></div>
-        <div class="slide"><img src="Stack logos/nodejs.png" alt="Node.js" class="tech-icon"></div>
-        <div class="slide"><img src="Stack logos/sqlite.png" alt="Sqlite" class="tech-icon"></div>
-      </div>
-    </div>
+    <canvas id="hero-canvas" class="absolute inset-0 pointer-events-none opacity-40"></canvas>
   </section>
 
-  <style>
-    .technology-slider {
-      background-color: #000;
-      padding: 60px 0;
-      overflow: hidden;
-    }
-    .slider {
-      display: flex;
-      animation: slide 20s linear infinite;
-      width: max-content;
-    }
-    .slide {
-      min-width: 100px;
-      margin: 0 20px;
-      font-size: 50px;
-      color: #fff;
-      transition: all 0.3s ease;
-      text-align: center;
-    }
-    .slide:hover {
-      transform: scale(1.2);
-      color: var(--purple-primary);
-      text-shadow: 0 0 20px var(--purple-primary);
-    }
-    
-    .tech-icon {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      filter: grayscale(100%) brightness(150%);
-      transition: all 0.3s ease;
-    }
-    
-    .slide:hover .tech-icon {
-      filter: grayscale(0%) brightness(100%);
-      transform: scale(1.2);
-    }
-    
-    .tech-name {
-      font-size: 16px;
-      display: block;
-      margin-top: 8px;
-      color: #ffffff;
-      font-weight: 600;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif;
-    }
-    @keyframes slide {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
-  </style>
-
-  <script>
-    // Random duration for animation
-    document.addEventListener('DOMContentLoaded', function() {
-      const slider = document.querySelector('.slider');
-      const randomDuration = Math.floor(Math.random() * (25 - 15 + 1)) + 15;
-      slider.style.animationDuration = `${randomDuration}s`;
-      
-      // Clone slides for continuous loop
-      const slides = document.querySelectorAll('.slide');
-      slides.forEach(slide => {
-        const clone = slide.cloneNode(true);
-        slider.appendChild(clone);
-      });
-    });
-  </script>
-
-  <div class="divider"></div>
-  <!-- Project Statistics Section -->
-  <section id="project-stats" class="py-5" style="background-color: #000;">
-    <div class="container">
-      <h2 class="section-title text-center">Our Achievements</h2>
-      <p class="section-sub mx-auto text-center mb-5">
-        Delivering excellence through innovative solutions and satisfied clients
-      </p>
-      
-      <div class="row g-4">
-        <!-- Successful Projects -->
-        <div class="col-md-4">
-          <div class="stats-card" style="border: 2px solid var(--purple-primary); border-radius: 16px; padding: 30px; text-align: center; background: linear-gradient(135deg, #000000, #1a0033);">
-            <div class="stats-icon mb-3">
-              <div class="animated-icon success-icon">
-                <i class="bi bi-check-circle-fill"></i>
-              </div>
-            </div>
-            <h3 class="counter-value" data-target="4" style="font-size: 2.5rem; font-weight: 800; color: var(--purple-primary); margin-bottom: 10px;">0</h3>
-            <p style="color: #ffffff; font-size: 1.1rem; font-weight: 600;">Successful Projects</p>
-            <p style="color: #cccccc; font-size: 0.9rem;">Completed with excellence and client satisfaction</p>
-          </div>
+  <!-- ABOUT SECTION -->
+  <section id="about" class="py-20 md:py-32 relative overflow-hidden bg-[var(--bg-dark)]" data-aos="fade-up"
+    data-aos-delay="200">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div class="reveal">
+          <h2 class="text-[var(--accent-violet)] font-bold uppercase tracking-[0.25em] text-xs mb-4">The core
+            identity</h2>
+          <h3 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight">About Vaisoverse.</h3>
+          <p class="text-[var(--text-secondary)] text-xl mb-10 leading-relaxed font-medium text-justify">
+            Vaisoverse Technology is a forward-thinking technology consultancy and engineering studio
+            committed to helping organizations innovate faster, operate smarter, and scale securely. By
+            combining startup agility with modern tools, we deliver high-impact software, cloud, and
+            security solutions that empower businesses worldwide.
+          </p>
         </div>
-        
-        <!-- Projects in Progress -->
-        <div class="col-md-4">
-          <div class="stats-card" style="border: 2px solid var(--purple-primary); border-radius: 16px; padding: 30px; text-align: center; background: linear-gradient(135deg, #000000, #1a0033);">
-            <div class="stats-icon mb-3">
-              <div class="animated-icon progress-icon">
-                <i class="bi bi-gear-fill"></i>
-              </div>
+        <div class="relative reveal delay-300">
+          <div class="aspect-square glass-card rounded-[3rem] overflow-hidden p-3 relative ring-1 ring-white/10">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1470&auto=format&fit=crop"
+              alt="Team Discussion"
+              class="w-full h-full object-cover rounded-[2.5rem] opacity-80 group-hover:scale-105 transition-transform duration-1000">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-[var(--bg-dark)] via-transparent to-transparent opacity-60">
             </div>
-            <h3 class="counter-value" data-target="3" style="font-size: 2.5rem; font-weight: 800; color: var(--purple-primary); margin-bottom: 10px;">0</h3>
-            <p style="color: #ffffff; font-size: 1.1rem; font-weight: 600;">Projects in Progress</p>
-            <p style="color: #cccccc; font-size: 0.9rem;">Currently being developed with cutting-edge tech</p>
-          </div>
-        </div>
-        
-        <!-- Happy Clients -->
-        <div class="col-md-4">
-          <div class="stats-card" style="border: 2px solid var(--purple-primary); border-radius: 16px; padding: 30px; text-align: center; background: linear-gradient(135deg, #000000, #1a0033);">
-            <div class="stats-icon mb-3">
-              <div class="animated-icon client-icon">
-                <i class="bi bi-emoji-smile-fill"></i>
-              </div>
-            </div>
-            <h3 class="counter-value" data-target="5" style="font-size: 2.5rem; font-weight: 800; color: var(--purple-primary); margin-bottom: 10px;">0</h3>
-            <p style="color: #ffffff; font-size: 1.1rem; font-weight: 600;">Happy Clients</p>
-            <p style="color: #cccccc; font-size: 0.9rem;">Satisfied customers across various industries</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <style>
-    .stats-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .stats-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px rgba(161, 0, 255, 0.4);
-    }
+  <!-- PRODUCTS SECTION -->
+  <section id="products" class="py-20 md:py-32 bg-[var(--surface-dark)]" data-aos="fade-up">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center mb-16 md:mb-24 reveal">
+        <h2 class="text-4xl md:text-5xl font-black mb-4">Our Premium Products</h2>
+        <p class="text-[var(--text-secondary)]">Industrial-grade ecosystems for specialized operations.</p>
+      </div>
 
-    .animated-icon {
-      font-size: 3rem;
-      color: var(--purple-primary);
-      position: relative;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Retail App -->
+        <div class="glass-card group p-10 rounded-[2rem] reveal reveal-stagger relative overflow-hidden">
+          <div
+            class="absolute -right-4 -top-4 w-24 h-24 bg-purple-500/5 rounded-full group-hover:bg-purple-500/20 transition-all duration-700">
+          </div>
+          <div
+            class="w-16 h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-8 border border-purple-500/20 group-hover:scale-110 transition-transform">
+            <svg class="w-8 h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+            </svg>
+          </div>
+          <h4 class="text-2xl font-bold mb-4">Smart Retail App</h4>
+          <p class="text-sm text-[var(--text-secondary)] leading-relaxed mb-6">Omni-channel retail management
+            with real-time inventory and predictive analytics.</p>
+          <a href="Retail Management.pdf" target="_blank"
+            class="text-xs font-bold uppercase tracking-widest text-purple-400 flex items-center group-hover:text-white transition-colors">
+            Discover More <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
 
-    .success-icon {
-      animation: pulse 2s infinite;
-    }
+        <!-- Staff Management -->
+        <div class="glass-card group p-10 rounded-[2rem] reveal reveal-stagger relative overflow-hidden">
+          <div
+            class="absolute -right-4 -top-4 w-24 h-24 bg-violet-500/5 rounded-full group-hover:bg-violet-500/20 transition-all duration-700">
+          </div>
+          <div
+            class="w-16 h-16 bg-violet-500/10 rounded-2xl flex items-center justify-center mb-8 border border-violet-500/20 group-hover:scale-110 transition-transform">
+            <svg class="w-8 h-8 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+              </path>
+            </svg>
+          </div>
+          <h4 class="text-2xl font-bold mb-4">Smart Staff Management</h4>
+          <p class="text-sm text-[var(--text-secondary)] leading-relaxed mb-6">Next-gen HR platform for
+            workforce optimization and automated performance scaling.</p>
+          <a href="#contact"
+            class="text-xs font-bold uppercase tracking-widest text-violet-400 flex items-center group-hover:text-white transition-colors">
+            Discover More <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
 
-    .progress-icon {
-      animation: rotate 3s infinite linear;
-    }
+        <!-- Hotel Management -->
+        <div class="glass-card group p-10 rounded-[2rem] reveal reveal-stagger relative overflow-hidden">
+          <div
+            class="absolute -right-4 -top-4 w-24 h-24 bg-blue-500/5 rounded-full group-hover:bg-blue-500/20 transition-all duration-700">
+          </div>
+          <div
+            class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-8 border border-blue-500/20 group-hover:scale-110 transition-transform">
+            <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1">
+              </path>
+            </svg>
+          </div>
+          <h4 class="text-2xl font-bold mb-4"> Smart Hotel Management</h4>
+          <p class="text-sm text-[var(--text-secondary)] leading-relaxed mb-6">Unified hospitality operative
+            system for seamless guest experiences and booking.</p>
+          <a href="Hotel Management.pdf" target="_blank"
+            class="text-xs font-bold uppercase tracking-widest text-blue-400 flex items-center group-hover:text-white transition-colors">
+            Discover More <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
 
-    .client-icon {
-      animation: bounce 2s infinite;
-    }
+        <!-- Database Management -->
+        <div class="glass-card group p-10 rounded-[2rem] reveal reveal-stagger relative overflow-hidden">
+          <div
+            class="absolute -right-4 -top-4 w-24 h-24 bg-emerald-500/5 rounded-full group-hover:bg-emerald-500/20 transition-all duration-700">
+          </div>
+          <div
+            class="w-16 h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-8 border border-emerald-500/20 group-hover:scale-110 transition-transform">
+            <svg class="w-8 h-8 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 7v10c0 2 3.5 4 8 4s8-2 8-4V7M4 7c0 2 3.5 4 8 4s8-2 8-4M4 7c0-2 3.5-4 8-4s8 2 8 4m0 5c0 2-3.5 4-8 4s-8-2-8-4">
+              </path>
+            </svg>
+          </div>
+          <h4 class="text-2xl font-bold mb-4">Smart Database Management</h4>
+          <p class="text-sm text-[var(--text-secondary)] leading-relaxed mb-6">High-availability data fabric
+            for ultra-fast retrieval and distributed storage integrity.</p>
+          <a href="#contact"
+            class="text-xs font-bold uppercase tracking-widest text-emerald-400 flex items-center group-hover:text-white transition-colors">
+            Discover More <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    .stats-card:hover .animated-icon {
-      transform: scale(1.2);
-      color: #ffffff;
-      text-shadow: 0 0 20px var(--purple-primary);
-    }
+  <!-- INNOVATION SECTION -->
+  <section id="innovation" class="py-32 relative overflow-hidden bg-black" data-aos="fade-up">
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-purple-900/10 to-transparent"></div>
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="max-w-4xl mx-auto text-center mb-24 reveal">
+        <h2 class="text-[var(--accent-violet)] font-bold uppercase tracking-[0.3em] text-[10px] mb-4 text-center">
+          The Innovation Protocol</h2>
+        <h3 class="text-4xl md:text-6xl font-black mb-8">Innovative Smart Living</h3>
+      </div>
 
-    /* Vision and Mission Icon Animations */
-    .vision-icon.animated-icon {
-      font-size: 2rem;
-      color: var(--purple-primary);
-      animation: vision-pulse 3s infinite;
-      display: inline-block;
-    }
-
-    .mission-icon.animated-icon {
-      font-size: 2rem;
-      color: var(--purple-primary);
-      animation: mission-rotate 4s infinite;
-      display: inline-block;
-      transform-origin: center;
-    }
-
-    @keyframes vision-pulse {
-      0%, 100% {
-        transform: scale(1);
-        text-shadow: 0 0 0 rgba(161, 0, 255, 0);
-      }
-      50% {
-        transform: scale(1.2);
-        text-shadow: 0 0 20px rgba(161, 0, 255, 0.6);
-      }
-    }
-
-    @keyframes mission-rotate {
-      0% {
-        transform: rotate(0deg) scale(1);
-      }
-      25% {
-        transform: rotate(10deg) scale(1.1);
-      }
-      50% {
-        transform: rotate(0deg) scale(1);
-      }
-      75% {
-        transform: rotate(-10deg) scale(1.1);
-      }
-      100% {
-        transform: rotate(0deg) scale(1);
-      }
-    }
-
-    .vision-icon.animated-icon:hover,
-    .mission-icon.animated-icon:hover {
-      color: #ffffff;
-      text-shadow: 0 0 25px var(--purple-primary);
-      transform: scale(1.3);
-      animation-play-state: paused;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-10px); }
-      60% { transform: translateY(-5px); }
-    }
-  </style>
-
-  <script>
-    // Counter animation
-    document.addEventListener('DOMContentLoaded', function() {
-      const counters = document.querySelectorAll('.counter-value');
-      const speed = 200; // The lower the slower
-      
-      counters.forEach(counter => {
-        const updateCount = () => {
-          const target = +counter.getAttribute('data-target');
-          const count = +counter.innerText;
-          
-          // Animate counter
-          const inc = target / speed;
-          
-          if (count < target) {
-            counter.innerText = Math.ceil(count + inc);
-            setTimeout(updateCount, 1);
-          } else {
-            counter.innerText = target;
-          }
-        };
-        
-        // Start counter when element is in viewport
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              updateCount();
-              observer.unobserve(entry.target);
-            }
-          });
-        });
-        
-        observer.observe(counter);
-      });
-    });
-  </script>
-
-  <!-- CAREERS -->
-  <section id="careers" class="careers">
-    <div class="container">
-      <h2 class="section-title text-center">Join Our Team</h2>
-      <p class="section-sub mx-auto text-center">
-        We’re a curious, kind, and high-impact crew. If you love building reliable systems and thoughtful experiences, you’ll fit right in.
-      </p>
-  
-      <div class="row g-4 mt-2">
-        <!-- Software Development -->
-        <div class="col-md-4">
-          <div class="opening">
-            <h5 class="fw-bold">Software Development</h5>
-            <p class="mb-2 text-muted">Remote · India</p>
-            <ul class="mb-3">
-              <li>React / Node / PostgreSQL</li>
-              <li>Experience with cloud & containers</li>
-            </ul>
-            <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#softwareModal">
-              <i class="bi bi-send me-2"></i>Apply Now
-            </button>
+      <div class="grid lg:grid-cols-3 gap-12">
+        <!-- AI Powered Smart E-Commerces -->
+        <div class="group relative reveal">
+          <div class="aspect-video glass-card rounded-[2.5rem] overflow-hidden relative ring-1 ring-white/5">
+            <img src="images/smart_ecommerce.png" alt="AI Powered Smart E-Commerces"
+              class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+            <div class="absolute bottom-8 left-8">
+              <h4 class="text-3xl font-black mb-2">Smart E-Commerces</h4>
+              <p class="text-white/60 text-sm font-medium">AI-driven platforms for personalized retail intelligence.</p>
+            </div>
           </div>
         </div>
-  
+
+        <!-- Smart Locking -->
+        <div class="group relative reveal delay-100">
+          <div class="aspect-video glass-card rounded-[2.5rem] overflow-hidden relative ring-1 ring-white/5">
+            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=1470&auto=format&fit=crop"
+              class="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-1000">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+            <div class="absolute bottom-8 left-8">
+              <h4 class="text-3xl font-black mb-2">Smart Locking</h4>
+              <p class="text-white/60 text-sm font-medium">Biometric & Encrypted Access Control Systems.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smart Home (Updated Image) -->
+        <div class="group relative reveal delay-200">
+          <div class="aspect-video glass-card rounded-[2.5rem] overflow-hidden relative ring-1 ring-white/5">
+            <img src="images/smart_home.png" alt="Smart Home Control Interior"
+              class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+            <div class="absolute bottom-8 left-8">
+              <h4 class="text-3xl font-black mb-2">Smart Home</h4>
+              <p class="text-white/60 text-sm font-medium">Unified IoT hubs for adaptive home automation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK SECTION -->
+  <section id="tech" class="py-32 bg-[var(--bg-dark)]" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="text-center text-4xl font-black mb-24 reveal">Our Technological Stack</h2>
+
+      <div class="grid lg:grid-cols-3 gap-12">
+        <!-- App Development -->
+        <div class="glass-card p-10 rounded-3xl reveal border-b-2 border-purple-500/50">
+          <h4
+            class="text-xl font-black mb-8 border-l-4 border-purple-500 pl-4 uppercase tracking-widest text-purple-400 text-xs">
+            App Development</h4>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
+              class="w-8 h-8 opacity-50 hover:opacity-100 hover:scale-110 transition-all" title="Flutter">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg"
+              class="w-8 h-8 opacity-50 hover:opacity-100 hover:scale-110 transition-all" title="Kotlin">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg"
+              class="w-8 h-8 opacity-50 hover:opacity-100 hover:scale-110 transition-all" title="Swift">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+              class="w-8 h-8 opacity-50 hover:opacity-100 hover:scale-110 transition-all" title="React Native">
+          </div>
+        </div>
+
+        <!-- IoT -->
+        <div class="glass-card p-10 rounded-3xl reveal delay-100 border-b-2 border-violet-500/50">
+          <h4
+            class="text-xl font-black mb-8 border-l-4 border-violet-500 pl-4 uppercase tracking-widest text-violet-400 text-xs">
+            Internet of Things</h4>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg"
+              class="w-8 h-8 opacity-50 hover:opacity-100 hover:scale-110 transition-all" title="Arduino">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+              class="w-8 h-8 opacity-50 hover:opacity-100 hover:scale-110 transition-all" title="C++">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+              class="w-8 h-8 opacity-50 hover:opacity-100 hover:scale-110 transition-all" title="Python">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg"
+              class="w-8 h-8 opacity-50 hover:opacity-100 hover:scale-110 transition-all" title="Raspberry Pi">
+          </div>
+        </div>
+
         <!-- Web Development -->
-        <div class="col-md-4">
-          <div class="opening">
-            <h5 class="fw-bold">Web Development</h5>
-            <p class="mb-2 text-muted">Hybrid · Bengaluru</p>
-            <ul class="mb-3">
-              <li>Frontend frameworks & REST APIs</li>
-              <li>Responsive and scalable web applications</li>
-            </ul>
-            <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#webModal">
-              <i class="bi bi-send me-2"></i>Apply Now
-            </button>
-          </div>
-        </div>
-  
-        <!-- Mobile App Development -->
-        <div class="col-md-4">
-          <div class="opening">
-            <h5 class="fw-bold">Mobile App Development</h5>
-            <p class="mb-2 text-muted">Remote · India</p>
-            <ul class="mb-3">
-              <li>Flutter, Firebase / REST</li>
-              <li>App Store / Play Store releases</li>
-            </ul>
-            <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#mobileModal">
-              <i class="bi bi-send me-2"></i>Apply Now
-            </button>
+        <div class="glass-card p-10 rounded-3xl reveal delay-200 border-b-2 border-accent-violet/50">
+          <h4
+            class="text-xl font-black mb-8 border-l-4 border-accent-violet pl-4 uppercase tracking-widest text-accent-violet text-xs">
+            Web Development</h4>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-line.svg"
+              class="w-8 h-8 opacity-50 hover:opacity-100 hover:scale-110 transition-all invert" title="Next.js">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+              class="w-8 h-8 opacity-50 hover:opacity-100 hover:scale-110 transition-all" title="Tailwind">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+              class="w-8 h-8 opacity-50 hover:opacity-100 hover:scale-110 transition-all" title="Node.js">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+              class="w-8 h-8 opacity-50 hover:opacity-100 hover:scale-110 transition-all" title="MongoDB">
           </div>
         </div>
       </div>
     </div>
   </section>
-  
-  <!-- Modals -->
-  
-  <!-- Software Development Modal -->
-  <div class="modal fade" id="softwareModal" tabindex="-1" aria-labelledby="softwareModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title fw-bold" id="softwareModalLabel">Software Development</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>Join our team to design and develop scalable software solutions. You’ll work with cutting-edge technologies and cloud platforms to build reliable applications.</p>
-          <ul>
-            <li>Develop features using React, Node.js, and PostgreSQL</li>
-            <li>Experience with cloud infrastructure and containerization</li>
-            <li>Collaborate with cross-functional teams for high-quality solutions</li>
-            <li>Participate in code reviews and mentoring team members</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Web Development Modal -->
-  <div class="modal fade" id="webModal" tabindex="-1" aria-labelledby="webModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title fw-bold" id="webModalLabel">Web Development</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>Be part of our web development team and build high-quality, responsive web applications. Focus on smooth user experiences and scalable architectures.</p>
-          <ul>
-            <li>Develop and maintain web applications</li>
-            <li>Integrate REST APIs and backend services</li>
-            <li>Ensure responsive and performant UI/UX</li>
-            <li>Collaborate on code quality and testing</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Mobile App Development Modal -->
-  <div class="modal fade" id="mobileModal" tabindex="-1" aria-labelledby="mobileModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title fw-bold" id="mobileModalLabel">Mobile App Development</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>Build high-quality iOS and Android apps as part of our mobile development team. Focus on smooth user experiences and scalable architectures.</p>
-          <ul>
-            <li>Develop and maintain mobile applications</li>
-            <li>Integrate REST APIs and Firebase services</li>
-            <li>Manage app store submissions and releases</li>
-            <li>Ensure high-quality, tested, and performant code</li>
-          </ul>
-        </div>
-  </div>
-  </div>
-</div>
 
-<hr class="divider">
+  <!-- CAREERS SECTION -->
+  <section id="careers" class="py-32 bg-[var(--surface-dark)]" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-end justify-between mb-20 reveal">
+        <div>
+          <h2 class="text-4xl md:text-5xl font-black mb-4">Career Opportunities</h2>
+          <p class="text-[var(--text-secondary)] font-medium">Bridge the gap between vision and reality.
+            Accelerate your career with Vaisoverse.</p>
+        </div>
+        <button
+          class="hidden md:block px-8 py-3 glass-card rounded-full font-bold text-sm hover:border-white transition-all">View
+          All Roles</button>
+      </div>
 
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="container">
-      <h2 class="section-title text-center">Frequently Asked Questions</h2>
-      <div class="accordion mt-4" id="faqAcc">
-        
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#f1">
-              Which industries do you serve?
-            </button>
-          </h2>
-          <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc">
-            <div class="accordion-body">
-              We work across finance, healthcare, retail, logistics, education, and SaaS—adapting our playbooks to your risk, scale, and compliance needs.
+      <div class="max-w-4xl mx-auto space-y-8">
+        <!-- Role: Software Engineer -->
+        <div
+          class="glass-card p-10 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between group reveal border-l-8 border-purple-500">
+          <div class="flex items-center space-x-8">
+            <div
+              class="w-20 h-20 rounded-full bg-purple-500/10 flex items-center justify-center border border-purple-500/20 text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-all duration-500 flex-shrink-0">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-3xl font-black group-hover:text-purple-400 transition-colors mb-2">Software
+                Engineer</h4>
+              <p class="text-white/50 text-xs uppercase tracking-widest font-bold mb-4">Engineering • High
+                Integrity • Remote/Hybrid</p>
+              <p class="text-sm text-white/70 max-w-md leading-relaxed">Join our core architecture team to
+                build distributed systems, scalable APIs, and intelligent data meshes using modern
+                cloud-native protocols.</p>
             </div>
           </div>
+          <a href="https://forms.gle/hWsYnygHV7TjjDnX8" target="_blank"
+            class="mt-8 md:mt-0 px-10 py-4 bg-white text-black font-black rounded-xl hover:bg-[var(--accent-violet)] hover:text-white transition-all transform hover:scale-105 active:scale-95 inline-block text-center">Apply</a>
         </div>
-        
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f2">
-              How do your pricing tiers work?
-            </button>
-          </h2>
-          <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-            <div class="accordion-body">
-              Each tier maps to scope and complexity. We estimate effort, define milestones, then work in 1–2 week sprints with demos, QA, and acceptance at every step.
-            </div>
-          </div>
-        </div>
-  
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f3">
-              What about IP and security?
-            </button>
-          </h2>
-          <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-            <div class="accordion-body">
-              You own 100% of the IP. We follow OWASP, least-privilege access, encrypted secrets, and routine security reviews. Compliance add-ons available.
-            </div>
-          </div>
-        </div>
-  
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f4">
-              How long does a typical project take?
-            </button>
-          </h2>
-          <div id="f4" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-            <div class="accordion-body">
-              Project timelines vary by scope, but most web or mobile projects complete within 8–16 weeks, including design, development, testing, and deployment.
-            </div>
-          </div>
-        </div>
-  
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f5">
-              Do you provide post-launch support?
-            </button>
-          </h2>
-          <div id="f5" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-            <div class="accordion-body">
-              Absolutely! We offer maintenance plans, monitoring, updates, and feature enhancements to ensure your software stays secure and performant.
-            </div>
-          </div>
-        </div>
-  
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f6">
-              Can you integrate with existing systems?
-            </button>
-          </h2>
-          <div id="f6" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-            <div class="accordion-body">
-              Yes, we specialize in integrating new solutions with your current software, APIs, or cloud services for seamless operation and minimal disruption.
-            </div>
-          </div>
-        </div>
-  
       </div>
     </div>
   </section>
-  <!-- CONTACT -->
-<section id="contact" class="contact">
-    <div class="container">
-      <div class="row g-4 align-items-stretch">
-        
-        <!-- Contact Info -->
-        <div class="col-lg-6">
-          <h2 class="section-title text-white">Let’s build something great</h2>
-          <p class="mb-4">Tell us about your goals. We’ll reply within one business day.</p>
-  
-          <div class="card p-3 mb-3">
-            <div class="d-flex align-items-center mb-2">
-              <i class="bi bi-envelope-open fs-4 me-2 text-warning"></i>
-              <span>vaisoverse@gmail.com</span>
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <i class="bi bi-telephone fs-4 me-2 text-warning"></i>
-              <span>+91-9566985698</span>
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <i class="bi bi-geo-alt fs-4 me-2 text-warning"></i>
-              <span> Mysore· Remote</span>
-            </div>
-            <div class="d-flex align-items-center mb-3">
-              <i class="bi bi-globe fs-4 me-2 text-warning"></i>
-              <span>www.Vaisoverse Technology.com</span>
-            </div>
-  
-            
-            <div class="d-flex gap-2">
-              <a class="btn btn-outline-light" href="login.html"><i class="bi bi-briefcase me-2"></i>Employee Login</a>
-              <a class="btn btn-outline-light" href="customer-login.html"><i class="bi bi-person-badge me-2"></i>Customer Login</a>
-            </div>
+
+  <!-- FAQ SECTION -->
+  <section id="faq" class="py-32" data-aos="fade-up">
+    <div class="container mx-auto px-6 max-w-3xl">
+      <h2 class="text-4xl font-black text-center mb-24 reveal">Frequently Asked Questions</h2>
+      <div class="space-y-6">
+        <!-- FAQ 1 -->
+        <div class="glass-card rounded-3xl overflow-hidden reveal">
+          <button
+            class="w-full p-8 text-left flex justify-between items-center group faq-toggle hover:bg-white/5 transition-colors">
+            <span class="font-bold text-lg">How does Vaisoverse drive AI innovation?</span>
+            <svg class="w-6 h-6 transition-transform duration-500 text-purple-500" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+              </path>
+            </svg>
+          </button>
+          <div class="px-8 pb-8 text-white/50 leading-relaxed text-sm hidden font-medium">
+            We operate a dedicated R&D lab that prototypes advanced neural architectures and cognitive computing models,
+            integrating them directly into enterprise workflows for real-world impact.
           </div>
-  
-          <!-- Newsletter Signup -->
-          <div class="card p-3 mt-3">
-            <h5 class="mb-2">Subscribe to our Newsletter</h5>
-            <form onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-              <div class="input-group">
-                <input type="email" class="form-control" placeholder="Your email" required>
-                <button class="btn btn-warning" type="submit">Subscribe</button>
-              </div>
-            </form>
-          </div>
-  
         </div>
-  
-        <!-- Contact Form & Map -->
-        <div class="col-lg-6">
-          <form class="card p-4 mb-3" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="ac8aa0e4-c6ff-4bf0-a8ee-4ac6b44d140a">
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label">Full Name</label>
-                <input name="name" class="form-control" placeholder="Your name" required>
+        <!-- FAQ 2 -->
+        <div class="glass-card rounded-3xl overflow-hidden reveal delay-100">
+          <button
+            class="w-full p-8 text-left flex justify-between items-center group faq-toggle hover:bg-white/5 transition-colors">
+            <span class="font-bold text-lg">What is your methodology for Research & Development?</span>
+            <svg class="w-6 h-6 transition-transform duration-500 text-purple-500" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+              </path>
+            </svg>
+          </button>
+          <div class="px-8 pb-8 text-white/50 leading-relaxed text-sm hidden font-medium">
+            Our R&D pipeline follows a "Prototype-to-Product" cycle, where we explore moonshot technologies
+            like quantum-resistant encryption and decentralized IoT management before refining them for commercial use.
+          </div>
+        </div>
+        <!-- FAQ 3 -->
+        <div class="glass-card rounded-3xl overflow-hidden reveal delay-200">
+          <button
+            class="w-full p-8 text-left flex justify-between items-center group faq-toggle hover:bg-white/5 transition-colors">
+            <span class="font-bold text-lg">Can we collaborate on custom innovation projects?</span>
+            <svg class="w-6 h-6 transition-transform duration-500 text-purple-500" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+              </path>
+            </svg>
+          </button>
+          <div class="px-8 pb-8 text-white/50 leading-relaxed text-sm hidden font-medium">
+            Absolutely. We frequently partner with industry leaders to co-develop proprietary solutions,
+            leveraging our cross-disciplinary expertise in software architecture and hardware integration.
+          </div>
+        </div>
+        <!-- FAQ 4 (New) -->
+        <div class="glass-card rounded-3xl overflow-hidden reveal delay-300">
+          <button
+            class="w-full p-8 text-left flex justify-between items-center group faq-toggle hover:bg-white/5 transition-colors">
+            <span class="font-bold text-lg">What kind of R&D does Vaisoverse conduct?</span>
+            <svg class="w-6 h-6 transition-transform duration-500 text-purple-500" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+              </path>
+            </svg>
+          </button>
+          <div class="px-8 pb-8 text-white/50 leading-relaxed text-sm hidden font-medium">
+            Our Innovation Lab focuses on cognitive home automation, biometric decentralized authentication,
+            and quantum-resistant data meshes. We believe in engineering solutions for the next decade.
+          </div>
+        </div>
+        <!-- FAQ 5 (Innovation & R&D) -->
+        <div class="glass-card rounded-3xl overflow-hidden reveal delay-[400ms]">
+          <button
+            class="w-full p-8 text-left flex justify-between items-center group faq-toggle hover:bg-white/5 transition-colors">
+            <span class="font-bold text-lg">How does Vaisoverse sustain its commitment to continuous Innovation and
+              R&D?</span>
+            <svg class="w-6 h-6 transition-transform duration-500 text-purple-500" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+              </path>
+            </svg>
+          </button>
+          <div class="px-8 pb-8 text-white/50 leading-relaxed text-sm hidden font-medium">
+            We reinvest a significant portion of our revenue into our specialized Innovation Lab, fostering a culture
+            where
+            our architects are empowered to prototype moonshot technologies that define the next decade of intelligent
+            systems.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="py-32 relative overflow-hidden" data-aos="zoom-in">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto">
+        <!-- Refined Form -->
+        <div class="glass-card p-12 md:p-16 rounded-[3.5rem] reveal ring-1 ring-white/5">
+          <h2 class="text-5xl font-black mb-12">Get in Touch.</h2>
+          <form id="interface-form" class="space-y-10">
+            <div class="grid md:grid-cols-2 gap-10">
+              <div class="space-y-3">
+                <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Identity</label>
+                <input type="text" required
+                  class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium"
+                  placeholder="Ex: Alex Carter">
               </div>
-              <div class="col-md-6">
-                <label class="form-label">Email</label>
-                <input name="email" type="email" class="form-control" placeholder="your @gmail" required>
+              <div class="space-y-3">
+                <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Secure
+                  Mail</label>
+                <input type="email" required
+                  class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium"
+                  placeholder="alex@intel.com">
               </div>
-              <div class="col-md-6">
-                <label class="form-label">Phone</label>
-                <input name="phone" class="form-control" placeholder="+91 ..." required>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10">
+              <div class="space-y-3">
+                <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Phone
+                  Protocol</label>
+                <input type="tel"
+                  class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium"
+                  placeholder="+91 XXX-XXX-XXXX">
               </div>
-              <div class="col-md-6">
-                <label class="form-label">Service</label>
-                <select name="service" class="form-select">
-                  <option>Software Development</option>
-                  <option>Web Development</option>
-                  <option>Mobile App</option>
-                  <option>IT Consulting</option>
+              <div class="space-y-3">
+                <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Service
+                  Stream</label>
+                <select
+                  class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium appearance-none">
+                  <option class="bg-black">Smart Retail Management Solutions</option>
+                  <option class="bg-black">Smart Staff & HR Management Systems</option>
+                  <option class="bg-black">Smart Hospitality (Hotel) Management</option>
+                  <option class="bg-black">Smart Intelligent Database Systems</option>
+                  <option class="bg-black">Smart Home & IoT Automation</option>
+                  <option class="bg-black">Smart Advanced Security (Smart Locking)</option>
+                  <option class="bg-black">Custom Software Product</option>
                 </select>
               </div>
-              <div class="col-12">
-                <label class="form-label">Project Brief</label>
-                <textarea name="message" class="form-control" rows="4" placeholder="Tell us about your goals, timeline, and budget…"></textarea>
-              </div>
-              <div class="col-12">
-                <button class="btn btn-warning btn-lg w-100"><i class="bi bi-send me-2"></i>Send Message</button>
-              </div>
             </div>
+            <div class="space-y-3">
+              <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Message
+                Hub</label>
+              <textarea rows="4" required
+                class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium resize-none"
+                placeholder="Elaborate on your technological objectives..."></textarea>
+            </div>
+            <button type="submit"
+              class="w-full py-6 bg-white text-black font-black rounded-2xl hover:bg-gradient-to-r hover:from-purple-500 hover:to-violet-500 hover:text-white transition-all text-xl btn-ripple">Initiate
+              Secure Connection</button>
           </form>
-  
-          <!-- Google Maps Embed -->
-          <div class="card p-3">
-            <h5 class="mb-2">Our Offices</h5>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31123.123!2d77.5946!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670!2sBengaluru!5e0!3m2!1sen!2sin!4v1234567890" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-          </div>
         </div>
-  
       </div>
     </div>
   </section>
+
   <!-- FOOTER -->
-<footer class="py-4">
-  <div class="container text-center">
-    <p class="mb-1">&copy; A Unit of Veera Group of Company. All Rights Reserved by Vaisoverse Technology.</p>
-    <p class="mb-0">
-      <a href="https://www.instagram.com/vaisovers/?next=%2F"><i class="bi bi-instagram me-2"></i></a>
-      <a href="#"><i class="bi bi-twitter-x me-2"></i></a>
-      <a href="https://www.linkedin.com/in/vaiso-verse-technology-4877b3367/"><i class="bi bi-linkedin me-2"></i></a>
-      <a href="https://www.youtube.com/@Vaisoverse"><i class="bi bi-youtube me-2"></i></a>
-    </p>
-  </div>
-</footer>
+  <footer class="pt-20 pb-10 bg-black border-t border-white/5 relative overflow-hidden">
+    <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-purple-500/5 rounded-full blur-[80px]"></div>
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-10">
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-8">
+          <a href="#home" class="flex items-center space-x-4">
+            <img src="Vaisoverse Technology.png" alt="Logo" class="h-12 w-auto">
+            <div class="flex flex-col">
+              <span class="text-2xl font-black tracking-tight text-white">Vaisoverse Technology</span><br>
+              <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30 italic">Innovating
+                Intelligent Digital Solutions</span>
+            </div>
+          </a>
 
+          <!-- Footer Search Bar -->
+          <div class="relative group max-w-sm">
+            <input type="text" placeholder="Search Vaisoverse..."
+              class="w-full bg-white/5 border border-white/10 rounded-xl px-10 py-3 focus:outline-none focus:border-purple-500 transition-all text-xs font-medium backdrop-blur-md">
+            <svg
+              class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 group-focus-within:text-purple-500 transition-colors"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </div>
 
+          <div class="flex space-x-4">
+            <a href="https://www.instagram.com/vaisovers/?next=%2F" target="_blank"
+              class="w-10 h-10 rounded-xl glass-card flex items-center justify-center hover:bg-gradient-to-tr hover:from-purple-600 hover:to-pink-500 transition-all text-white/40 hover:text-white">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/share/15SFr2X8E4/" target="_blank"
+              class="w-10 h-10 rounded-xl glass-card flex items-center justify-center hover:bg-blue-600 transition-all text-white/40 hover:text-white">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@Vaisoverse" target="_blank"
+              class="w-10 h-10 rounded-xl glass-card flex items-center justify-center hover:bg-red-600 transition-all text-white/40 hover:text-white">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+              </svg>
+            </a>
+            <a href="https://in.linkedin.com/in/vaiso-verse-technology-4877b3367" target="_blank"
+              class="w-10 h-10 rounded-xl glass-card flex items-center justify-center hover:bg-[#0077b5] transition-all text-white/40 hover:text-white">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+          </div>
+        </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Show loading spinner on page load
-    const loadingSpinner = document.createElement('div');
-    loadingSpinner.className = 'loading-spinner';
-    loadingSpinner.innerHTML = `
-      <div class="spinner-container">
-        <div class="spinner-circle"></div>
-        <div class="spinner-logo"></div>
+        <!-- Navigation Columns -->
+        <div class="pt-2">
+          <ul class="space-y-4">
+            <li><a href="#home" class="text-sm text-white/40 hover:text-white transition-colors">Home</a>
+            </li>
+            <li><a href="#about" class="text-sm text-white/40 hover:text-white transition-colors">About</a>
+            </li>
+            <li><a href="#products" class="text-sm text-white/40 hover:text-white transition-colors">Products</a></li>
+          </ul>
+        </div>
+        <div class="pt-2">
+          <ul class="space-y-4">
+            <li><a href="#innovation" class="text-sm text-white/40 hover:text-white transition-colors">Innovation</a>
+            </li>
+            <li><a href="#tech" class="text-sm text-white/40 hover:text-white transition-colors">Tech
+                Stack</a></li>
+            <li><a href="#careers" class="text-sm text-white/40 hover:text-white transition-colors">Careers</a></li>
+          </ul>
+        </div>
+        <div class="pt-2">
+          <ul class="space-y-4">
+            <li><a href="team" class="text-sm text-white/40 hover:text-white transition-colors">Team</a></li>
+            <li><a href="#faq" class="text-sm text-white/40 hover:text-white transition-colors">FAQ</a></li>
+            <li><a href="#contact" class="text-[var(--accent-violet)] text-sm font-bold hover:underline">Connect Now</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    `;
-    document.body.appendChild(loadingSpinner);
 
-    window.addEventListener('load', () => {
-      loadingSpinner.classList.add('hidden');
-      setTimeout(() => {
-        loadingSpinner.remove();
-      }, 500); // Delay to allow fade-out effect
+      <div class="pt-4 border-t border-white/5 flex flex-col md:flex-row justify-end items-center">
+        <p class="text-[10px] uppercase tracking-[0.4em] text-white/30 font-black text-center md:text-right">©
+          All Rights Reserved. Vaisoverse Technology Pvt Ltd.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Intersection Observer for Reveal Logic
+    const revealCallback = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          if (entry.target.classList.contains('counter')) startCounter(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(revealCallback, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal, .counter').forEach(el => observer.observe(el));
+
+    // Numeric Counters
+    function startCounter(el) {
+      if (el.dataset.running) return;
+      el.dataset.running = "true";
+      const target = parseInt(el.dataset.target);
+      let count = 0;
+      const speed = 2000; // 2 seconds total
+      const step = target / (speed / 16);
+      const update = () => {
+        count += step;
+        if (count < target) {
+          el.innerText = Math.floor(count);
+          requestAnimationFrame(update);
+        } else {
+          el.innerText = target + "+";
+        }
+      };
+      update();
+    }
+
+    // Modal Handlers
+    function openModal() { document.getElementById('modal-overlay').classList.add('active'); }
+    function closeModal() { document.getElementById('modal-overlay').classList.remove('active'); }
+    function simulateApply() { openModal(); }
+
+    // Form Handling
+    document.getElementById('interface-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      openModal();
+      e.target.reset();
     });
 
-    document.querySelectorAll('.navbar-collapse .nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        const navbarCollapse = document.querySelector('.navbar-collapse');
-        if (navbarCollapse.classList.contains('show')) {
-          new bootstrap.Collapse(navbarCollapse).hide();
-        }
+    // Header Transparency on Scroll
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('main-header');
+      const backToTop = document.getElementById('back-to-top');
+
+      if (window.scrollY > 50) {
+        header.classList.add('py-2');
+        header.classList.remove('py-4');
+      } else {
+        header.classList.add('py-4');
+        header.classList.remove('py-2');
+      }
+
+      if (window.scrollY > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // FAQ Toggle
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('svg');
+        const isOpen = !content.classList.contains('hidden');
+
+        // Close others (Optional)
+        // document.querySelectorAll('.faq-toggle + div').forEach(c => c.classList.add('hidden'));
+
+        content.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
       });
     });
 
-    // Typing animation for hero text
-    document.addEventListener("DOMContentLoaded", function() {
-      const text = "Empowering Businesses with Technology";
-      const typingElement = document.getElementById('typing-text');
-      typingElement.textContent = '';
-      let index = 0;
+    // Mobile Menu
+    const menuBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+      const spans = menuBtn.querySelectorAll('span');
+      spans[0].classList.toggle('rotate-45'); spans[0].classList.toggle('translate-y-2');
+      spans[1].classList.toggle('opacity-0');
+      spans[2].classList.toggle('-rotate-45'); spans[2].classList.toggle('-translate-y-2');
+    });
 
-      function type() {
-        if (index < text.length) {
-          typingElement.textContent += text.charAt(index);
-          index++;
-          setTimeout(type, 50); // Adjust typing speed here (100ms per character)
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      });
+    });
+
+    // Hero Particles
+    const canvas = document.getElementById('hero-canvas');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
+      window.addEventListener('resize', resize);
+      resize();
+
+      class Particle {
+        constructor() {
+          this.init();
+        }
+        init() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 2 + 0.5;
+          this.sx = Math.random() * 0.4 - 0.2;
+          this.sy = Math.random() * 0.4 - 0.2;
+          this.o = Math.random() * 0.4;
+        }
+        draw() {
+          ctx.fillStyle = `rgba(184, 90, 217, ${this.o})`;
+          ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
+        }
+        update() {
+          this.x += this.sx; this.y += this.sy;
+          if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.init();
         }
       }
-      type();
+      for (let i = 0; i < 120; i++) particles.push(new Particle());
+      const animate = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(animate);
+      };
+      animate();
+    }
 
-      // Background images rotation for hero section
-      const images = [
-          "images/herobg1.jpg",
-          "images/herobg2.jpg",
-          "images/herobg3.jpg",
-      ];
-
-      let bgIndex = 0;
-      const hero = document.getElementById("home");
-
-      function changeBackground() {
-        hero.style.backgroundImage = `url('${images[bgIndex]}')`;
-        bgIndex = (bgIndex + 1) % images.length;
-      }
-
-      // Set first image immediately
-      changeBackground();
-
-      // Rotate every 5s
-      setInterval(changeBackground, 5000);
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-out-cubic'
     });
   </script>
-
 </body>
 
 </html>
-
