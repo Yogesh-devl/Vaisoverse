@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vaisoverse Technology | Innovating Intelligent Digital Solutions</title>
+  <title>Vaisoverse Innovation | Innovating Artificial Intelligent Solutions</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
@@ -108,23 +108,6 @@
       transform: translateY(0);
     }
 
-    /* Product Card Staggered Delay Simulation via JS or CSS classes */
-    .reveal-stagger:nth-child(1) {
-      transition-delay: 0.1s;
-    }
-
-    .reveal-stagger:nth-child(2) {
-      transition-delay: 0.2s;
-    }
-
-    .reveal-stagger:nth-child(3) {
-      transition-delay: 0.3s;
-    }
-
-    .reveal-stagger:nth-child(4) {
-      transition-delay: 0.4s;
-    }
-
     /* Hover Underscore Animation */
     .nav-link {
       position: relative;
@@ -189,20 +172,6 @@
       display: flex;
     }
 
-    /* Noise Overlay for texture */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-      opacity: 0.03;
-      z-index: 1;
-    }
-
     /* Floating Buttons */
     .floating-btns {
       position: fixed;
@@ -246,6 +215,11 @@
     .whatsapp-btn {
       background: #25D366;
       color: white;
+    }
+
+    /* Map Dark Mode Filter */
+    .dark-map {
+      filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(100%);
     }
   </style>
 </head>
@@ -294,9 +268,9 @@
         <div class="flex flex-col">
           <span
             class="text-xl font-extrabold tracking-tight text-white group-hover:text-[var(--accent-violet)] transition-colors">Vaisoverse
-            Technology</span>
+            Innovation </span>
           <span class="text-[10px] uppercase tracking-[0.2em] font-medium text-white/50 leading-none">Innovating
-            Intelligent Digital Solutions</span>
+            Artificial Intelligent Solutions</span>
         </div>
       </a>
 
@@ -314,10 +288,17 @@
         <a href="#careers"
           class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">Careers</a>
         <a href="#faq" class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">FAQ</a>
-        <a href="team" class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">Team</a>
+        <a href="team.html" class="text-sm font-semibold text-white/80 hover:text-white nav-link transition-colors">Team</a>
         <a href="#contact"
           class="px-6 py-2.5 bg-gradient-to-r from-[var(--primary-purple)] to-[var(--accent-violet)] rounded-full text-sm font-bold btn-ripple">Connect
           Now</a>
+        
+        <!-- NEW ADMIN BUTTON FOR DESKTOP -->
+        <a href="https://hrsite-manager-uxe5.vercel.app/" target="_blank"
+          class="px-6 py-2.5 border border-purple-500/50 bg-purple-500/10 text-purple-300 rounded-full text-sm font-bold hover:bg-purple-500 hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(142,42,174,0.15)] hover:shadow-[0_0_25px_rgba(142,42,174,0.5)] flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+          Admin
+        </a>
       </div>
 
       <!-- Mobile Hamburger -->
@@ -339,8 +320,15 @@
     <a href="#tech" class="text-2xl font-bold mobile-link">Tech Stack</a>
     <a href="#careers" class="text-2xl font-bold mobile-link">Careers</a>
     <a href="#faq" class="text-2xl font-bold mobile-link">FAQ</a>
-    <a href="team" class="text-2xl font-bold mobile-link">Team</a>
+    <a href="team.html" class="text-2xl font-bold mobile-link">Team</a>
     <a href="#contact" class="text-2xl font-bold mobile-link text-[var(--accent-violet)]">Contact</a>
+    
+    <!-- NEW ADMIN BUTTON FOR MOBILE -->
+    <a href="https://hrsite-manager-uxe5.vercel.app/" target="_blank" 
+       class="mt-6 px-8 py-3 border border-purple-500/50 bg-purple-500/10 text-purple-300 rounded-full text-xl font-bold hover:bg-purple-500 hover:text-white transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(142,42,174,0.15)]">
+       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+       Admin Portal
+    </a>
   </div>
 
   <!-- HERO SECTION -->
@@ -350,20 +338,7 @@
     <div class="absolute inset-0 z-0 bg-black/40"></div>
 
     <div class="container mx-auto px-4 md:px-6 relative z-10 text-center"><br>
-      <!-- Search Bar -->
-      <div class="max-w-2xl mx-auto mb-10 reveal">
-        <div class="relative group">
-          <input type="text" placeholder="Search for intelligent solutions..."
-            class="w-full bg-white/5 border border-white/10 rounded-2xl px-12 py-5 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium backdrop-blur-md">
-          <svg
-            class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/30 group-focus-within:text-purple-500 transition-colors"
-            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
-        </div>
-      </div>
-
+      
       <div class="inline-block px-4 py-1.5 mb-6 glass-card rounded-full ring-1 ring-white/10">
         <span class="text-xs font-bold tracking-[0.3em] uppercase text-purple-400">Enterprise Intelligent
           Systems</span>
@@ -372,7 +347,7 @@
       <h1 class="text-4xl md:text-7xl lg:text-8xl font-black tracking-tight mb-8 leading-[1.2] md:leading-[1.1]">
         Engineering the <span
           class="bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary-purple)] to-[var(--accent-violet)]">Future</span><br>
-        of Intelligent Technology
+        of Artificial Intelligent Technology
       </h1>
 
       <p class="text-lg md:text-xl text-[var(--text-secondary)] max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
@@ -524,7 +499,7 @@
           <h4 class="text-2xl font-bold mb-4">Smart Database Management</h4>
           <p class="text-sm text-[var(--text-secondary)] leading-relaxed mb-6">High-availability data fabric
             for ultra-fast retrieval and distributed storage integrity.</p>
-          <a href="#contact"
+          <a href="EMPLOYEE MANAGER SYSTEM.pdf" target="_blank"
             class="text-xs font-bold uppercase tracking-widest text-emerald-400 flex items-center group-hover:text-white transition-colors">
             Discover More <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none"
               stroke="currentColor" viewBox="0 0 24 24">
@@ -568,13 +543,13 @@
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
             <div class="absolute bottom-8 left-8">
               <h4 class="text-3xl font-black mb-2">Smart Locking</h4>
-              <p class="text-white/60 text-sm font-medium">Biometric & Encrypted Access Control Systems.
+              <p class="text-white/60 text-sm font-medium">AI-Driven Biometric & Encrypted Access Control Systems.
               </p>
             </div>
           </div>
         </div>
 
-        <!-- Smart Home (Updated Image) -->
+        <!-- Smart Home -->
         <div class="group relative reveal delay-200">
           <div class="aspect-video glass-card rounded-[2.5rem] overflow-hidden relative ring-1 ring-white/5">
             <img src="images/smart_home.png" alt="Smart Home Control Interior"
@@ -582,7 +557,7 @@
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
             <div class="absolute bottom-8 left-8">
               <h4 class="text-3xl font-black mb-2">Smart Home</h4>
-              <p class="text-white/60 text-sm font-medium">Unified IoT hubs for adaptive home automation.
+              <p class="text-white/60 text-sm font-medium">AI-Driven Unified IoT hubs for adaptive home automation.
               </p>
             </div>
           </div>
@@ -667,28 +642,92 @@
 
       <div class="max-w-4xl mx-auto space-y-8">
         <!-- Role: Software Engineer -->
-        <div
-          class="glass-card p-10 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between group reveal border-l-8 border-purple-500">
-          <div class="flex items-center space-x-8">
-            <div
-              class="w-20 h-20 rounded-full bg-purple-500/10 flex items-center justify-center border border-purple-500/20 text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-all duration-500 flex-shrink-0">
-              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-              </svg>
+        <div class="glass-card p-10 rounded-[2.5rem] group reveal border-l-8 border-purple-500 relative">
+          
+          <!-- MAGIC TOGGLE (NO JAVASCRIPT NEEDED) -->
+          <input type="checkbox" id="toggle-apply-se" class="peer hidden">
+
+          <!-- Card Header & Apply Trigger -->
+          <div class="flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center space-x-8">
+              <div
+                class="w-20 h-20 rounded-full bg-purple-500/10 flex items-center justify-center border border-purple-500/20 text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-all duration-500 flex-shrink-0">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-3xl font-black group-hover:text-purple-400 transition-colors mb-2">Software
+                  Engineer</h4>
+                <p class="text-white/50 text-xs uppercase tracking-widest font-bold mb-4">Engineering • High
+                  Integrity • Remote/Hybrid</p>
+                <p class="text-sm text-white/70 max-w-md leading-relaxed">Join our core architecture team to
+                  build distributed systems, scalable APIs, and intelligent data meshes using modern
+                  cloud-native protocols.</p>
+              </div>
             </div>
-            <div>
-              <h4 class="text-3xl font-black group-hover:text-purple-400 transition-colors mb-2">Software
-                Engineer</h4>
-              <p class="text-white/50 text-xs uppercase tracking-widest font-bold mb-4">Engineering • High
-                Integrity • Remote/Hybrid</p>
-              <p class="text-sm text-white/70 max-w-md leading-relaxed">Join our core architecture team to
-                build distributed systems, scalable APIs, and intelligent data meshes using modern
-                cloud-native protocols.</p>
-            </div>
+            
+            <!-- Clicking this label triggers the hidden checkbox -->
+            <label for="toggle-apply-se"
+              class="mt-8 md:mt-0 px-10 py-4 bg-white text-black font-black rounded-xl hover:bg-[var(--accent-violet)] hover:text-white transition-all transform hover:scale-105 active:scale-95 inline-block text-center cursor-pointer select-none">
+              Apply
+            </label>
           </div>
-          <a href="https://forms.gle/hWsYnygHV7TjjDnX8" target="_blank"
-            class="mt-8 md:mt-0 px-10 py-4 bg-white text-black font-black rounded-xl hover:bg-[var(--accent-violet)] hover:text-white transition-all transform hover:scale-105 active:scale-95 inline-block text-center">Apply</a>
+
+          <!-- HIDDEN FORM -->
+          <!-- HIDDEN FORM (Revealed seamlessly by CSS when Checkbox is checked) -->
+          <div class="hidden peer-checked:block mt-8 pt-8 border-t border-white/10 form-reveal">
+            <h5 class="text-2xl font-black mb-6 text-purple-400">Application Gateway</h5>
+            
+            <form id="career-form" action="https://formsubmit.co/deepakvaisoverse@gmail.com" method="POST" enctype="multipart/form-data" class="space-y-6">
+              <input type="hidden" name="_subject" value="New Job Application: Software Engineer">
+              <input type="hidden" name="_captcha" value="false">
+
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                  <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Full Identity</label>
+                  <input type="text" name="Applicant Name" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium" placeholder="Ex: Sarah Connor">
+                </div>
+                <div class="space-y-2">
+                  <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Secure Mail</label>
+                  <input type="email" name="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium" placeholder="sarah@network.com">
+                </div>
+              </div>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                  <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Phone Protocol</label>
+                  <input type="tel" name="Phone Number" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium" placeholder="+91 XXX-XXX-XXXX">
+                </div>
+                <div class="space-y-2">
+                  <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">LinkedIn Profile</label>
+                  <input type="text" name="LinkedIn URL" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium" placeholder="linkedin.com/in/yourprofile">
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Portfolio Link (Optional)</label>
+                <input type="text" name="Portfolio" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium" placeholder="github.com/yourwork">
+              </div>
+
+              <div class="space-y-2">
+                <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Resume / Data Package (PDF)</label>
+                <input type="file" name="Resume" accept=".pdf,.doc,.docx" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium text-white/50 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-purple-500/20 file:text-purple-400 hover:file:bg-purple-500/30 file:transition-all cursor-pointer">
+              </div>
+
+              <div class="space-y-2">
+                <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Cover Logic</label>
+                <textarea name="Cover Letter" rows="3" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium resize-none" placeholder="Elaborate on why you are a perfect fit for this architecture..."></textarea>
+              </div>
+
+              <div class="flex flex-col md:flex-row justify-end items-center gap-4 pt-4">
+                <label for="toggle-apply-se" class="w-full md:w-auto px-8 py-3 bg-white/5 text-white/70 font-bold rounded-xl hover:bg-white/10 transition-all cursor-pointer text-center select-none">Cancel</label>
+                <button type="submit" class="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-purple-500 to-violet-500 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-purple-500/30 transition-all transform hover:scale-105 active:scale-95">Transmit Application</button>
+              </div>
+            </form>
+          </div>
+
         </div>
       </div>
     </div>
@@ -747,7 +786,7 @@
             leveraging our cross-disciplinary expertise in software architecture and hardware integration.
           </div>
         </div>
-        <!-- FAQ 4 (New) -->
+        <!-- FAQ 4 -->
         <div class="glass-card rounded-3xl overflow-hidden reveal delay-300">
           <button
             class="w-full p-8 text-left flex justify-between items-center group faq-toggle hover:bg-white/5 transition-colors">
@@ -763,7 +802,7 @@
             and quantum-resistant data meshes. We believe in engineering solutions for the next decade.
           </div>
         </div>
-        <!-- FAQ 5 (Innovation & R&D) -->
+        <!-- FAQ 5 -->
         <div class="glass-card rounded-3xl overflow-hidden reveal delay-[400ms]">
           <button
             class="w-full p-8 text-left flex justify-between items-center group faq-toggle hover:bg-white/5 transition-colors">
@@ -786,63 +825,127 @@
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
+  <!-- RE-DESIGNED CONTACT SECTION WITH ADDRESS & MAP -->
   <section id="contact" class="py-32 relative overflow-hidden" data-aos="zoom-in">
     <div class="container mx-auto px-6">
-      <div class="max-w-4xl mx-auto">
-        <!-- Refined Form -->
-        <div class="glass-card p-12 md:p-16 rounded-[3.5rem] reveal ring-1 ring-white/5">
-          <h2 class="text-5xl font-black mb-12">Get in Touch.</h2>
-          <form id="interface-form" class="space-y-10">
-            <div class="grid md:grid-cols-2 gap-10">
-              <div class="space-y-3">
-                <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Identity</label>
-                <input type="text" required
-                  class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium"
-                  placeholder="Ex: Alex Carter">
-              </div>
-              <div class="space-y-3">
-                <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Secure
-                  Mail</label>
-                <input type="email" required
-                  class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium"
-                  placeholder="alex@intel.com">
-              </div>
+      <div class="max-w-6xl mx-auto">
+        <div class="glass-card p-8 md:p-12 lg:p-16 rounded-[3.5rem] reveal ring-1 ring-white/5">
+          <div class="grid lg:grid-cols-5 gap-12 lg:gap-16">
+            
+            <!-- Left Side: Contact Form -->
+            <div class="lg:col-span-3">
+              <h2 class="text-4xl md:text-5xl font-black mb-10">Get in Touch.</h2>
+              <form id="interface-form" class="space-y-8">
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="space-y-2">
+                    <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Identity</label>
+                    <input type="text" required
+                      class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium"
+                      placeholder="Ex: Alex Carter">
+                  </div>
+                  <div class="space-y-2">
+                    <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Secure Mail</label>
+                    <input type="email" required
+                      class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium"
+                      placeholder="alex@intel.com">
+                  </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="space-y-2">
+                    <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Phone Protocol</label>
+                    <input type="tel"
+                      class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium"
+                      placeholder="+91 XXX-XXX-XXXX">
+                  </div>
+                  <div class="space-y-2">
+                    <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Service Stream</label>
+                    <select
+                      class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium appearance-none">
+                      <option class="bg-black">Smart Retail Management Solutions</option>
+                      <option class="bg-black">Smart Staff & HR Management Systems</option>
+                      <option class="bg-black">Smart Hospitality (Hotel) Management</option>
+                      <option class="bg-black">Smart Intelligent Database Systems</option>
+                      <option class="bg-black">Smart Home & IoT Automation</option>
+                      <option class="bg-black">Smart Advanced Security (Smart Locking)</option>
+                      <option class="bg-black">Custom Software Product</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Message Hub</label>
+                  <textarea rows="4" required
+                    class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium resize-none"
+                    placeholder="Elaborate on your technological objectives..."></textarea>
+                </div>
+                <button type="submit"
+                  class="w-full py-5 bg-white text-black font-black rounded-2xl hover:bg-gradient-to-r hover:from-purple-500 hover:to-violet-500 hover:text-white transition-all text-lg btn-ripple">
+                  Initiate Secure Connection
+                </button>
+              </form>
             </div>
-            <div class="grid md:grid-cols-2 gap-10">
-              <div class="space-y-3">
-                <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Phone
-                  Protocol</label>
-                <input type="tel"
-                  class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium"
-                  placeholder="+91 XXX-XXX-XXXX">
+
+            <!-- Right Side: Headquarters Info & Map -->
+            <div class="lg:col-span-2 flex flex-col justify-center space-y-10">
+              
+              <!-- Address Details -->
+              <div>
+                <h3 class="text-2xl font-black mb-6 text-white border-l-4 border-[var(--accent-violet)] pl-3">Headquarters</h3>
+                
+                <div class="space-y-6 text-sm text-[var(--text-secondary)] font-medium">
+                  <!-- Address -->
+                  <div class="flex items-start space-x-4 group cursor-default">
+                    <div class="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center shrink-0 text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <div class="pt-1 leading-relaxed">
+                      <p class="font-bold text-white mb-1">Vaisoverse Technology</p>
+                      <p>No.350/1D, Poluvampatty Road,</p>
+                      <p>Thondamuthur, Coimbatore South,</p>
+                      <p>Coimbatore - 641109</p>
+                    </div>
+                  </div>
+
+                  <!-- Phone -->
+                  <a href="tel:+919566985698" class="flex items-center space-x-4 group">
+                    <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center shrink-0 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    </div>
+                    <span class="group-hover:text-white transition-colors">+91 9566985698</span>
+                  </a>
+
+                  <!-- Email -->
+                  <a href="mailto:vaisoverse@gmail.com" class="flex items-center space-x-4 group">
+                    <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <span class="group-hover:text-white transition-colors">vaisoverse@gmail.com</span>
+                  </a>
+                  
+                  <!-- Website -->
+                  <a href="https://www.vaisoverse.in" target="_blank" class="flex items-center space-x-4 group">
+                    <div class="w-10 h-10 rounded-full bg-rose-500/10 flex items-center justify-center shrink-0 text-rose-400 group-hover:bg-rose-500 group-hover:text-white transition-colors">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                    </div>
+                    <span class="group-hover:text-white transition-colors">www.vaisoverse.in</span>
+                  </a>
+                </div>
               </div>
-              <div class="space-y-3">
-                <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Service
-                  Stream</label>
-                <select
-                  class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium appearance-none">
-                  <option class="bg-black">Smart Retail Management Solutions</option>
-                  <option class="bg-black">Smart Staff & HR Management Systems</option>
-                  <option class="bg-black">Smart Hospitality (Hotel) Management</option>
-                  <option class="bg-black">Smart Intelligent Database Systems</option>
-                  <option class="bg-black">Smart Home & IoT Automation</option>
-                  <option class="bg-black">Smart Advanced Security (Smart Locking)</option>
-                  <option class="bg-black">Custom Software Product</option>
-                </select>
+
+              <!-- Google Map View -->
+              <div class="w-full h-72 lg:h-96 rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(184,90,217,0.1)] relative group">
+                <iframe 
+                  src="https://maps.google.com/maps?q=No.350/1D,%20Poluvampatty%20Road,%20Thondamuthur,%20Coimbatore%20South,%20Coimbatore-%20641109&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                  class="absolute inset-0 w-full h-full dark-map border-0" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <!-- Subtle tint that disappears on hover -->
+                <div class="absolute inset-0 pointer-events-none bg-purple-900/10 group-hover:bg-transparent transition-colors duration-500"></div>
               </div>
+
             </div>
-            <div class="space-y-3">
-              <label class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Message
-                Hub</label>
-              <textarea rows="4" required
-                class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 focus:outline-none focus:border-purple-500 transition-all text-sm font-medium resize-none"
-                placeholder="Elaborate on your technological objectives..."></textarea>
-            </div>
-            <button type="submit"
-              class="w-full py-6 bg-white text-black font-black rounded-2xl hover:bg-gradient-to-r hover:from-purple-500 hover:to-violet-500 hover:text-white transition-all text-xl btn-ripple">Initiate
-              Secure Connection</button>
-          </form>
+          </div>
         </div>
       </div>
     </div>
@@ -929,17 +1032,23 @@
         </div>
         <div class="pt-2">
           <ul class="space-y-4">
-            <li><a href="team" class="text-sm text-white/40 hover:text-white transition-colors">Team</a></li>
+            <li><a href="team.html" class="text-sm text-white/40 hover:text-white transition-colors">Team</a></li>
             <li><a href="#faq" class="text-sm text-white/40 hover:text-white transition-colors">FAQ</a></li>
             <li><a href="#contact" class="text-[var(--accent-violet)] text-sm font-bold hover:underline">Connect Now</a>
             </li>
+            
+            <!-- NEW ADMIN BUTTON FOR FOOTER -->
+            <li><a href="https://hrsite-manager-uxe5.vercel.app/" target="_blank" class="text-white text-sm font-bold hover:underline flex items-center gap-2">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+              Admin Portal
+            </a></li>
           </ul>
         </div>
       </div>
 
       <div class="pt-4 border-t border-white/5 flex flex-col md:flex-row justify-end items-center">
         <p class="text-[10px] uppercase tracking-[0.4em] text-white/30 font-black text-center md:text-right">©
-          All Rights Reserved. Vaisoverse Technology Pvt Ltd.</p>
+          All Rights Reserved. Vaisoverse Innovation Pvt Ltd.</p>
       </div>
     </div>
   </footer>
